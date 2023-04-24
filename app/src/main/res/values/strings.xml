@@ -6,4 +6,5 @@
     <string name="SubmitButton">Submit!</string>
     <string name="SignUpLabel">Sign Up</string>
     <string name="GuestLabel">Continue as Guest?</string>
+    <string name="log_in">Log in</string>
 </resources>

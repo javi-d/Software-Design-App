@@ -21,8 +21,8 @@ public interface DAO {
     @Delete
     void delete(Users user);
 
-    @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mUsername= :username")
-    List<Users> getUserByUsername(String username);
+    @Query("SELECT * FROM " + AppDataBase.USERS_TABLE )
+    List<Users> getUserByUsername();
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mLogId = :logId")
     List<Users> geUserById(int logId);
 
