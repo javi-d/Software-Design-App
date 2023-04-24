@@ -11,8 +11,8 @@ import com.example.cst338_p2_movie_schmovies.Users;
 
 @Database(entities = {Users.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
-    public static final String DATABASE_NAME = "GymLog.db";
-    public static final String GYMLOG_TABLE = "gymlog_table";
+    public static final String DATABASE_NAME = "Users.db";
+    public static final String USERS_TABLE = "users_table";
 
     private static volatile AppDataBase instance;
     private static final Object LOCK = new Object();
