@@ -7,10 +7,31 @@
     tools:context=".log_In_Page">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/UserNameTextInput"
         android:layout_width="343dp"
         android:layout_height="80dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="72dp"
         android:hint="Enter your Username: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogInHeader" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/PasswordTextInput"
+        android:layout_width="343dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:hint="Enter your Password: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserNameTextInput" />
+
+    <TextView
+        android:id="@+id/LogInHeader"
+        android:layout_width="237dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="76dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
