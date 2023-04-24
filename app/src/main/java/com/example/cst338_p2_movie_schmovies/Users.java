@@ -12,24 +12,27 @@ public class Users {
 
    @PrimaryKey(autoGenerate = true)
    private int mLogId;
-   private String username;
-   private String password;
+   private String mUsername;
+   private String mPassword;
 
-   private Boolean isAdmin;
+   private Boolean mIsAdmin;
+
+
 
    //````````````````````````````````````````Constructor``````````````````````````//
-   public Users(String username, String password, int idNumber, Boolean isAdmin) {
-      this.username = username;
-      this.password = password;
-      this.isAdmin = isAdmin;
+   public Users(String username, String password, Boolean isAdmin) {
+      mUsername = username;
+      mPassword = password;
+      mIsAdmin = isAdmin;
    }
 
    @Override
    public String toString() {
       return "Users{" +
-              "username='" + username + '\'' +
-              ", password='" + password + '\'' +
-              ", isAdmin=" + isAdmin +
+              "mLogId=" + mLogId +
+              ", mUsername='" + mUsername + '\'' +
+              ", mPassword='" + mPassword + '\'' +
+              ", mIsAdmin=" + mIsAdmin +
               '}';
    }
 
@@ -45,28 +48,26 @@ public class Users {
    }
 
    public String getUsername() {
-      return username;
+      return mUsername;
    }
 
    public void setUsername(String username) {
-      this.username = username;
+      mUsername = username;
    }
 
    public String getPassword() {
-      return password;
+      return mPassword;
    }
 
    public void setPassword(String password) {
-      this.password = password;
+      mPassword = password;
    }
 
    public Boolean getAdmin() {
-      return isAdmin;
+      return mIsAdmin;
    }
 
    public void setAdmin(Boolean admin) {
-      isAdmin = admin;
+      mIsAdmin = admin;
    }
-
-
 }
