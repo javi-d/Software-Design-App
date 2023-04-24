@@ -1,3 +1,10 @@
+/*
+ * Authors: Cam Clendenon and Javier Dominguez
+ * Date: 4 - 23 - 2023
+ * This is what we have for out DAO file
+ */
+
+
 package com.example.cst338_p2_movie_schmovies;
 
 import androidx.room.Entity;
