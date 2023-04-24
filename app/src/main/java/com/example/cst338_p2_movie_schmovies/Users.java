@@ -1,15 +1,12 @@
 package com.example.cst338_p2_movie_schmovies;
 
 import androidx.room.Entity;
-<<<<<<< Updated upstream
+
 import androidx.room.PrimaryKey;
 
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 
 @Entity(tableName = AppDataBase.GYMLOG_TABLE)
-=======
-
->>>>>>> Stashed changes
 
 public class Users {
 
