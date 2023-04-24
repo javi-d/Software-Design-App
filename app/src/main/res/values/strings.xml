@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name"</string>
-    <string name=""> </string>
-</resources>>CST338-P2-Movie_Schmovies
+    <string name="app_name">CST338-P2-Movie_Schmovies</string>
+    <string name="usernameInputLabel">Enter your Username: </string>
+    <string name="passwordInputLabel">Enter your Password: </string>
+    <string name="LogInLabel">Log In</string>
+    <string name="SubmitButton">Submit!</string>
+    <string name="SignUpLabel">Sign Up</string>
+    <string name="GuestLabel">Continue as Guest?</string>
+</resources>

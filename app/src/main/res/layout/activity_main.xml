@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/WelcomeHeader"
         android:layout_width="319dp"
         android:layout_height="133dp"
         android:layout_marginTop="88dp"
@@ -19,38 +19,38 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/LogInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:gravity="center"
-        android:text="Log in"
+        android:text="@string/LogInLabel"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/WelcomeHeader" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/SignUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:gravity="center"
-        android:text="Sign Up"
+        android:text="@string/SignUpLabel"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/LogInButton" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/GuestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:gravity="center"
-        android:text="Continue as Guest"
+        android:text="@string/GuestLabel"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUpButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
