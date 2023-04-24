@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/mLo"
+        android:id="@+id/textView2"
         android:layout_width="319dp"
         android:layout_height="133dp"
         android:layout_marginTop="88dp"
