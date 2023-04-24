@@ -26,6 +26,7 @@ public class Users {
       mIsAdmin = isAdmin;
    }
 
+
    @Override
    public String toString() {
       return "Users{" +
@@ -36,8 +37,8 @@ public class Users {
               '}';
    }
 
-   //````````````````````````````````````````Get() and Set()``````````````````````//
 
+   //````````````````````````````````````````Get() and Set()``````````````````````//
 
    public int getLogId() {
       return mLogId;
