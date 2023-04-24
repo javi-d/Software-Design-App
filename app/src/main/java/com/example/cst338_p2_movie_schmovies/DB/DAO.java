@@ -4,7 +4,10 @@ import com.example.cst338_p2_movie_schmovies.Users;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
+
+import java.util.List;
 
 
 @Dao
@@ -18,6 +21,9 @@ public interface DAO {
     @Delete
     void delete(Users user);
 
-
+    @Query("SELECT * FROM " + AppDataBase.GYMLOG_TABLE + " WHERE username= :username")
+    List<Users> getUserByUsername(String username);
+    @Query("SELECT * FROM " + AppDataBase.GYMLOG_TABLE + " WHERE mLogId = :logId")
+    List<Users> geUserById(int logId);
 
 }
