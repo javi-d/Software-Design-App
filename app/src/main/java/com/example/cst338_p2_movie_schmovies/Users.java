@@ -15,15 +15,16 @@ public class Users {
    private String mUsername;
    private String mPassword;
 
-   private Boolean mIsAdmin;
+   public Boolean mIsAdmin;
 
 
 
    //````````````````````````````````````````Constructor``````````````````````````//
-   public Users(String username, String password, Boolean isAdmin) {
+   public Users( String username, String password, Boolean isAdmin) {
       mUsername = username;
       mPassword = password;
       mIsAdmin = isAdmin;
+
    }
 
 

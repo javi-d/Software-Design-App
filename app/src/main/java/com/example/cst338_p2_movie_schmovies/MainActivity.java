@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     private void refreshDisplay(){
         mUsersList = mDAO.getUserByUsername();
         if(! mUsersList.isEmpty()){
@@ -78,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
             mTitle.setText(R.string.log_in);
         }
     }
-
 
 
 }
