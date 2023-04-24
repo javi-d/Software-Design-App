@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
             mTitle.setText(sb.toString());
         }else{
-            mTitle.setText(R.string.log_in);
+            mTitle.setText(R.string.title);
         }
     }
 
