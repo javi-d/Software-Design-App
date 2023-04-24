@@ -1,16 +1,25 @@
 package com.example.cst338_p2_movie_schmovies;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
+
+@Entity(tableName = AppDataBase.GYMLOG_TABLE)
+
 public class Users {
+
+   @PrimaryKey(autoGenerate = true)
+   private int mLogId;
    private String username;
    private String password;
-   private int idNumber;
+
    private Boolean isAdmin;
 
    //````````````````````````````````````````Constructor``````````````````````````//
    public Users(String username, String password, int idNumber, Boolean isAdmin) {
       this.username = username;
       this.password = password;
-      this.idNumber = idNumber;
       this.isAdmin = isAdmin;
    }
 
@@ -19,12 +28,21 @@ public class Users {
       return "Users{" +
               "username='" + username + '\'' +
               ", password='" + password + '\'' +
-              ", idNumber=" + idNumber +
               ", isAdmin=" + isAdmin +
               '}';
    }
 
    //````````````````````````````````````````Get() and Set()``````````````````````//
+
+
+   public int getLogId() {
+      return mLogId;
+   }
+
+   public void setLogId(int logId) {
+      mLogId = logId;
+   }
+
    public String getUsername() {
       return username;
    }
@@ -39,14 +57,6 @@ public class Users {
 
    public void setPassword(String password) {
       this.password = password;
-   }
-
-   public int getIdNumber() {
-      return idNumber;
-   }
-
-   public void setIdNumber(int idNumber) {
-      this.idNumber = idNumber;
    }
 
    public Boolean getAdmin() {
