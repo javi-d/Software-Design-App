@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sign_Up_Page">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/SignUpUserNameTextInput"
+        android:layout_width="343dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="72dp"
+        android:hint="@string/usernameInputLabel"
+        android:textSize="25sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpHeader" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/PasswordTextInput"
+        android:layout_width="343dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:hint="@string/passwordInputLabel"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpUserNameTextInput" />
+
+    <TextView
+        android:id="@+id/SignUpHeader"
+        android:layout_width="237dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="@string/SignUpLabel"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/LoginSubmitButton"
+        android:layout_width="160dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/SubmitButton"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordTextInput" />
+</androidx.constraintlayout.widget.ConstraintLayout>
