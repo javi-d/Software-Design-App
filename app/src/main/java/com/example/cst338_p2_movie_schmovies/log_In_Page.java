@@ -49,6 +49,15 @@ public class log_In_Page extends AppCompatActivity {
         wireupDisplay();
 
         getLoginDatabase();
+
+        childMainDisplay.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Intent intent = new Intent(log_In_Page.this, Admin_login.class);
+                startActivity(intent);
+                return true;
+            }
+        });
     }
 
     private void getLoginDatabase() {
