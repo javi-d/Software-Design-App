@@ -20,6 +20,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="re_enter_password">Re-Enter Password:</string>
     <string name="movie_schmovies_Title">Welcome to Movie Schmovies</string>
+    <string name="enter_admin_username">Enter Admin Username</string>
+    <string name="admin_login_string">Admin Login</string>
+    <string name="enter_admin_password">Enter Admin Password</string>
     <string name="logout">logout</string>
     <string name="yes">yes</string>
     <string name="no">no</string>

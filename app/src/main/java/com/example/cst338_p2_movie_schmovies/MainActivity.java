@@ -135,7 +135,13 @@ public class MainActivity extends AppCompatActivity {
         if(users.size() <= 0){
             Users defaultUser = new Users("kiddo", "kid123");
             Users altUser = new Users("tester", "kid123");
-            mDAO.insert(defaultUser,altUser);
+
+            Users admin1 = new Users("Cam", "657admin"); //Admin accounts cannot log in through regular login page
+            Users admin2 = new Users("Javi", "idklmao");
+            admin1.setAdmin(true);
+            admin2.setAdmin(true);
+
+            mDAO.insert(defaultUser,altUser, admin1, admin2);
         }
 
 
