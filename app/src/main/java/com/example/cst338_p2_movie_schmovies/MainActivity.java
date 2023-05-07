@@ -6,6 +6,7 @@ import androidx.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -49,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getDatabase();
-        checkForUser();
-        addy(UserId);
-        loginUser(UserId);
+//        getDatabase();
+//        checkForUser();
+//        addy(UserId);
+//        loginUser(UserId);
 
 
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -66,21 +67,28 @@ public class MainActivity extends AppCompatActivity {
 
         mTitle.setMovementMethod(new ScrollingMovementMethod());
 
+        mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+                .allowMainThreadQueries()
+                .build()
+                .GymLogDAO();
 
 //        refreshDisplay();
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                refreshDisplay();
-                Int
+                getDatabase();
+                checkForUser();
+                addy(UserId);
+                loginUser(UserId);
             }
         });
 
         mSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Need to add intent to be able to switch pages
+                Intent intent = new Intent(MainActivity.this, Sign_Up_Page.class);
+                startActivity(intent);
             }
         });
 
@@ -119,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         UserId = Preferences.getInt(User_ID_KEY, -1);
 
-        if(UserId != 1){
+        if(UserId != -1){
             return;
         }
 
@@ -159,5 +167,3 @@ public class MainActivity extends AppCompatActivity {
 //        }
     }
 
-
-}

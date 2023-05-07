@@ -43,10 +43,10 @@ public class Sign_Up_Page extends AppCompatActivity {
     }
 
     private void signUpWiredUpDisplay() {
-        signUpUsernameField = signUpBinding.SignUpUserNameTextInput;
-        signUpPasswordField = signUpBinding.PasswordTextInput;
-        secondSignUpPasswordField = signUpBinding.PasswordTextInputSecond;
-        signUpSubmitButton = signUpBinding.SignUpSubmitButton;
+        signUpUsernameField = findViewById(R.id.SignUpUserNameTextInput);
+        signUpPasswordField = findViewById(R.id.PasswordTextInput);
+        secondSignUpPasswordField = findViewById(R.id.PasswordTextInputSecond);
+        signUpSubmitButton = findViewById(R.id.SignUpSubmitButton);
 
         signUpSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
