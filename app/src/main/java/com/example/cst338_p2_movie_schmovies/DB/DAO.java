@@ -28,8 +28,10 @@ public interface DAO {
     void delete(Users user);
 
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE )
-    List<Users> getUserByUsername();
+    List<Users> getAllUsers();
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mLogId = :logId")
-    List<Users> geUserById(int logId);
+    Users geUserById(int logId);
+    @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mUsername = :username")
+    Users getUserByUsername(String username);
 
 }

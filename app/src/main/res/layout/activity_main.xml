@@ -10,9 +10,9 @@
         android:id="@+id/WelcomeHeader"
         android:layout_width="319dp"
         android:layout_height="133dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="Welcome to Movie Schmovies"
+        android:text="@string/movie_schmovies_Title"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,37 +20,40 @@
 
     <Button
         android:id="@+id/LogInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/LogInLabel"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeHeader" />
 
     <Button
         android:id="@+id/SignUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/SignUpLabel"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LogInButton" />
 
     <Button
         android:id="@+id/GuestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_width="226dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/GuestLabel"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

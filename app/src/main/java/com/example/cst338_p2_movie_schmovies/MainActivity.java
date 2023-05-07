@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refreshDisplay(){
-        mUsersList = mDAO.getUserByUsername();
+//        mUsersList = mDAO.getUserByUsername(sign);
         if(! mUsersList.isEmpty()){
             StringBuilder sb = new StringBuilder();
             for(Users log : mUsersList){

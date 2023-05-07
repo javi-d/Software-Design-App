@@ -54,11 +54,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/LoginSubmitButton"
+        android:id="@+id/SignUpSubmitButton"
         android:layout_width="160dp"
         android:layout_height="119dp"
         android:layout_marginTop="40dp"
-        android:text="@string/SubmitButton"
+        android:text="@string/SignUpLabel"
         android:textSize="25sp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
