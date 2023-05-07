@@ -1,12 +1,19 @@
 package com.example.cst338_p2_movie_schmovies;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,10 +24,10 @@ import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 import com.example.cst338_p2_movie_schmovies.DB.DAO;
 import com.example.cst338_p2_movie_schmovies.databinding.ActivityLogInPageBinding;
 
+import java.util.List;
 
 
 public class log_In_Page extends AppCompatActivity {
-
 
     private ActivityLogInPageBinding Cbinding;
     private TextView childMainDisplay;
@@ -34,6 +41,8 @@ public class log_In_Page extends AppCompatActivity {
     private DAO DAO;
 
     private Users loginUser;
+
+
 
 
 
