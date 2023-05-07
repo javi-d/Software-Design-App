@@ -3,6 +3,9 @@ package com.example.cst338_p2_movie_schmovies;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -17,24 +20,39 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
+    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.PREFERENCE_KEY";
 
     ActivityMainBinding mBinding;
 
-    TextView mTitle;
+    private TextView mTitle;
 
-    Button mLogin;
-    Button mSignup;
-    Button mContinueAsGuest;
+    private Button mLogin;
+    private Button mSignup;
+    private Button mContinueAsGuest;
 
-    DAO mDAO;
+    private DAO mDAO;
 
-    List<Users> mUsersList;
+    private List<Users> mUsersList;
+
+    private int UserId = -1;
+
+    private SharedPreferences Preferences = null;
+
+    private Users User;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getDatabase();
+        checkForUser();
+        addy(UserId);
+        loginUser(UserId);
 
 
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -48,17 +66,14 @@ public class MainActivity extends AppCompatActivity {
 
         mTitle.setMovementMethod(new ScrollingMovementMethod());
 
-        mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
-                .allowMainThreadQueries()
-                .build()
-                .GymLogDAO();
 
-        refreshDisplay();
+//        refreshDisplay();
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                refreshDisplay();
+//                refreshDisplay();
+                Int
             }
         });
 
@@ -71,17 +86,77 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void refreshDisplay(){
-//        mUsersList = mDAO.getUserByUsername(sign);
-        if(! mUsersList.isEmpty()){
-            StringBuilder sb = new StringBuilder();
-            for(Users log : mUsersList){
-                sb.append(log.toString());
-            }
-            mTitle.setText(sb.toString());
-        }else{
-            mTitle.setText(R.string.title);
+    private void addy(int userId) {
+        if(Preferences == null){
+            getPrefs();
         }
+        SharedPreferences.Editor editor = Preferences.edit();
+        editor.putInt(User_ID_KEY, userId);
+    }
+
+    private void loginUser(int userId) {
+        User = mDAO.getUserById(userId);
+        invalidateOptionsMenu();
+    }
+
+    private void getDatabase() {
+        mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+                .allowMainThreadQueries()
+                .build()
+                .GymLogDAO();
+    }
+
+    private void checkForUser() {
+        UserId = getIntent().getIntExtra(User_ID_KEY, -1);
+
+        if(UserId != -1){
+            return;
+        }
+
+        if(Preferences == null){
+            getPrefs();
+        }
+
+        UserId = Preferences.getInt(User_ID_KEY, -1);
+
+        if(UserId != 1){
+            return;
+        }
+
+        List<Users> users = mDAO.getAllUsers();
+        if(users.size() <= 0){
+            Users defaultUser = new Users("kiddo", "kid123");
+            Users altUser = new Users("tester", "kid123");
+            mDAO.insert(defaultUser,altUser);
+        }
+
+
+        Intent intent = log_In_Page.intentFactory(this);
+        startActivity(intent);
+    }
+
+    private void getPrefs() {
+        Preferences = this.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE);
+    }
+
+
+    public static Intent intentFactory(Context applicationContext, int logId) {
+        Intent intent = new Intent(applicationContext, MainActivity.class);
+        intent.putExtra(User_ID_KEY, logId);
+        return intent;
+    }
+
+//    private void refreshDisplay(){
+//        mUsersList = mDAO.getAllUsers();
+//        if(! mUsersList.isEmpty()){
+//            StringBuilder sb = new StringBuilder();
+//            for(Users log : mUsersList){
+//                sb.append(log.toString());
+//            }
+//            mTitle.setText(sb.toString());
+//        }else{
+//            mTitle.setText(R.string.title);
+//        }
     }
 
 
