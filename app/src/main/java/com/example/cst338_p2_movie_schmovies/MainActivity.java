@@ -62,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Need to add intent to be able to switch pages
+            }
+        });
+
     }
 
     private void refreshDisplay(){

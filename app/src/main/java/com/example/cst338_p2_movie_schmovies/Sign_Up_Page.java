@@ -1,7 +1,9 @@
 package com.example.cst338_p2_movie_schmovies;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 import com.example.cst338_p2_movie_schmovies.DB.DAO;
 import com.example.cst338_p2_movie_schmovies.databinding.ActivitySignUpPageBinding;
 
@@ -55,8 +58,10 @@ public class Sign_Up_Page extends AppCompatActivity {
                     if (!checkSignUpPassword()){
                         Toast.makeText(Sign_Up_Page.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     } else{
-//                        Intent intent = moviepage....;
+//                        Intent intent = moviepage.intentFactory(getApplicationContext(), mUser.getUserId()); //TODO: create acutal main movie page and update intent.
 //                        startActivity(intent);
+                        Users newUser = new Users(signUpUsername, signUpPassword);
+                        signUpDAO.insert(newUser);
                     }
 
                 }
@@ -84,6 +89,16 @@ public class Sign_Up_Page extends AppCompatActivity {
     private boolean checkSignUpPassword() {
         return signUpPassword.equals(signSecondPassword);
 
+    }
+    private void getDatabase(){
+        signUpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+                .allowMainThreadQueries()
+                .build()
+                .GymLogDAO(); //TODO: Remember to change the name to something else. -Cam
+    }
+    public static  Intent intentFactory(Context context) {
+        Intent intent = new Intent(context, Sign_Up_Page.class);
+        return intent;
     }
 
 

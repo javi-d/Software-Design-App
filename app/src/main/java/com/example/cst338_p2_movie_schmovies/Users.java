@@ -27,10 +27,10 @@ public class Users {
 
 
    //````````````````````````````````````````Constructor``````````````````````````//
-   public Users( String username, String password, Boolean isAdmin) {
+   public Users( String username, String password) {
       mUsername = username;
       mPassword = password;
-      mIsAdmin = isAdmin;
+      mIsAdmin = Boolean.FALSE;
 
    }
 
