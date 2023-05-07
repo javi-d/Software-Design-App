@@ -10,10 +10,10 @@
         android:id="@+id/SignUpUserNameTextInput"
         android:layout_width="343dp"
         android:layout_height="80dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="32dp"
         android:hint="@string/usernameInputLabel"
         android:textSize="25sp"
-
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpHeader" />
@@ -25,15 +25,27 @@
         android:layout_marginTop="28dp"
         android:hint="@string/passwordInputLabel"
         android:textSize="25sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpUserNameTextInput" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/PasswordTextInputSecond"
+        android:layout_width="343dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:hint="@string/re_enter_password"
+        android:textSize="25sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordTextInput" />
 
     <TextView
         android:id="@+id/SignUpHeader"
         android:layout_width="237dp"
         android:layout_height="84dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="68dp"
         android:gravity="center"
         android:text="@string/SignUpLabel"
         android:textSize="36sp"
@@ -45,11 +57,12 @@
         android:id="@+id/LoginSubmitButton"
         android:layout_width="160dp"
         android:layout_height="119dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="40dp"
         android:text="@string/SubmitButton"
         android:textSize="25sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordTextInput" />
+        app:layout_constraintTop_toBottomOf="@+id/PasswordTextInputSecond" />
 </androidx.constraintlayout.widget.ConstraintLayout>
