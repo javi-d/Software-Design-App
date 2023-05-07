@@ -1,5 +1,7 @@
 package com.example.cst338_p2_movie_schmovies;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
@@ -38,9 +40,11 @@ public class Sign_Up_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         signUpWiredUpDisplay();
 
     }
+
 
     private void signUpWiredUpDisplay() {
         signUpUsernameField = findViewById(R.id.SignUpUserNameTextInput);
