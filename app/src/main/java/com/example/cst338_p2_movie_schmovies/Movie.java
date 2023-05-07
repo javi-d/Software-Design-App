@@ -2,15 +2,18 @@ package com.example.cst338_p2_movie_schmovies;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
+
+import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 
 import java.util.HashMap;
 import java.util.List;
 
-@Entity()
+@Entity(tableName = AppDataBase.MOVIE_TABLE)
 public class Movie {
 
     @PrimaryKey(autoGenerate = true)
-    private int mLogId;
+    private int mMovieLogId;
     private String mMovieName;
     private String mSynopsis;
 
@@ -30,7 +33,7 @@ public class Movie {
     @Override
     public String toString() {
         return "Movie{" +
-                "mLogId=" + mLogId +
+                "mLogId=" + mMovieLogId +
                 ", mMovieName='" + mMovieName + '\'' +
                 ", mSynopsis='" + mSynopsis + '\'' +
                 ", mAgeRating='" + mAgeRating + '\'' +
@@ -41,11 +44,11 @@ public class Movie {
 
 
     public int getLogId() {
-        return mLogId;
+        return mMovieLogId;
     }
 
     public void setLogId(int logId) {
-        mLogId = logId;
+        mMovieLogId = logId;
     }
 
     public String getMovieName() {
