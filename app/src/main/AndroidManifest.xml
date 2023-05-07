@@ -21,6 +21,7 @@
             android:theme="@style/Theme.CST338P2Movie_Schmovies.NoActionBar" />
         <activity
             android:name=".log_In_Page"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

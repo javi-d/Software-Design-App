@@ -41,6 +41,7 @@ public class log_In_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_page);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Cbinding = ActivityLogInPageBinding.inflate(getLayoutInflater());
         setContentView(Cbinding.getRoot());
@@ -94,7 +95,7 @@ public class log_In_Page extends AppCompatActivity {
     private boolean checkForUserInDatabase() {
         loginUser = DAO.getUserByUsername(lUsername);
         if(loginUser == null){
-            Toast.makeText(this, "no user " + lUsername + "found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "no user " + lUsername + " found", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
