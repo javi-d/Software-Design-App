@@ -68,6 +68,7 @@ public class central_movie_page extends AppCompatActivity {
                         clearUserFromPref();
                         UserId = -1;
                         checkForuser();
+
                     }
                 });
 
@@ -108,8 +109,8 @@ public class central_movie_page extends AppCompatActivity {
 //            DAO.insert(defeUser,altUser);
 //        }
 //
-//        Intent intent = ;
-//        startActivity(intent);
+        Intent intent = MainActivity.intentFactory(getApplicationContext(), UserId);
+        startActivity(intent);
 
     }
 
