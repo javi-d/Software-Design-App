@@ -107,6 +107,8 @@ public class Sign_Up_Page extends AppCompatActivity {
 
     private void signUpDatabase() {
         signUpDAO= Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
                 .GymLogDAO();
 

@@ -1,6 +1,7 @@
 package com.example.cst338_p2_movie_schmovies;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 import com.example.cst338_p2_movie_schmovies.DB.DAO;
 
 public class Admin_login extends AppCompatActivity {
@@ -33,6 +35,7 @@ public class Admin_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
 
+        adminDatabase();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         wiredUpDisplay();
     }
@@ -81,6 +84,15 @@ public class Admin_login extends AppCompatActivity {
     private void getLoginValuesFromDisplay() {
         adminUsername = adminUsernameField.getText().toString();
         adminPassword = adminPasswordField.getText().toString();
+    }
+
+    private void adminDatabase() {
+        DAO= Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build()
+                .GymLogDAO();
+
     }
 
     public Intent intentFactory(Context context){

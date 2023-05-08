@@ -72,6 +72,7 @@ public class log_In_Page extends AppCompatActivity {
     private void getLoginDatabase() {
         DAO= Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
                 .GymLogDAO();
 
