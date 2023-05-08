@@ -39,6 +39,7 @@ public class Sign_Up_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
+        signUpDatabase();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         signUpWiredUpDisplay();
@@ -104,5 +105,12 @@ public class Sign_Up_Page extends AppCompatActivity {
         return intent;
     }
 
+    private void signUpDatabase() {
+        signUpDAO= Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+                .allowMainThreadQueries()
+                .build()
+                .GymLogDAO();
+
+    }
 
 }
