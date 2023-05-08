@@ -34,6 +34,8 @@ public class central_movie_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_central_movie_page);
+
+
     }
 
 
