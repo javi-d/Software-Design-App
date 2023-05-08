@@ -133,4 +133,8 @@ public class central_movie_page extends AppCompatActivity {
         getIntent().putExtra(User_ID_KEY, -1);
     }
 
+    public static Intent intentFactory(Context context){
+        Intent intent = new Intent(context, central_movie_page.class);
+        return intent;
+    }
 }

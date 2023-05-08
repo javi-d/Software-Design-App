@@ -94,7 +94,7 @@ public class log_In_Page extends AppCompatActivity {
                     if(!approvePasword()){
                         Toast.makeText(log_In_Page.this, "Incorrect password", Toast.LENGTH_SHORT).show();
                     }else{
-                        Intent intent = MainActivity.intentFactory(getApplicationContext(), loginUser.getLogId());
+                        Intent intent = central_movie_page.intentFactory(getApplicationContext());
                         startActivity(intent);
                     }
                 }

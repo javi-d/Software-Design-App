@@ -62,10 +62,11 @@ public class Sign_Up_Page extends AppCompatActivity {
                     if (!checkSignUpPassword()){
                         Toast.makeText(Sign_Up_Page.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     } else{
-//                        Intent intent = moviepage.intentFactory(getApplicationContext(), mUser.getUserId()); //TODO: create acutal main movie page and update intent.
-//                        startActivity(intent);
                         Users newUser = new Users(signUpUsername, signUpPassword);
                         signUpDAO.insert(newUser);
+                        Intent intent = central_movie_page.intentFactory(getApplicationContext());
+                        startActivity(intent);
+
                     }
 
                 }
@@ -75,11 +76,9 @@ public class Sign_Up_Page extends AppCompatActivity {
     }
 
     private boolean uniqueUsername() {
+//        mUsers = null;
         mUsers = signUpDAO.getUserByUsername(signUpUsername);
-        if (mUsers == null) {
-            return true;
-        }
-        return false;
+        return mUsers == null;
     }
 
     private void getSignUpValuesByDisplay() {

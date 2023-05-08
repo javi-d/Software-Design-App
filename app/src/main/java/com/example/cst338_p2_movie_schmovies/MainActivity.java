@@ -92,6 +92,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mContinueAsGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, central_movie_page.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void addy(int userId) {
