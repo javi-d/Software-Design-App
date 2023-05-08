@@ -6,35 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".Sign_Up_Page">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/SignUpUserNameTextInput"
         android:layout_width="343dp"
         android:layout_height="80dp"
         android:layout_marginTop="32dp"
         android:hint="@string/usernameInputLabel"
+        android:inputType="textPersonName"
         android:textSize="25sp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpHeader" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/PasswordTextInput"
         android:layout_width="343dp"
         android:layout_height="80dp"
         android:layout_marginTop="28dp"
         android:hint="@string/passwordInputLabel"
+        android:inputType="textPassword"
         android:textSize="25sp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpUserNameTextInput" />
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/PasswordTextInputSecond"
         android:layout_width="343dp"
         android:layout_height="80dp"
         android:layout_marginTop="28dp"
         android:hint="@string/re_enter_password"
+        android:inputType="textPassword"
         android:textSize="25sp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
