@@ -33,6 +33,7 @@ public class Admin_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         wiredUpDisplay();
     }
 

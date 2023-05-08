@@ -12,8 +12,8 @@
         android:layout_marginTop="72dp"
         android:gravity="center"
         android:hint="@string/enter_admin_username"
+        android:inputType="textPersonName"
         android:textSize="25sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AdminLogInHeader" />
@@ -25,6 +25,7 @@
         android:layout_marginTop="28dp"
         android:gravity="center"
         android:hint="@string/enter_admin_password"
+        android:inputType="textPassword"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
