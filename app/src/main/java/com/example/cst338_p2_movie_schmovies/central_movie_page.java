@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Dao;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 import com.example.cst338_p2_movie_schmovies.DB.DAO;
 
 import java.util.List;
@@ -27,14 +29,14 @@ public class central_movie_page extends AppCompatActivity {
 
 
     private DAO DAO;
-    private int UserId  = -1;
+    private int userId  = -1;
     private SharedPreferences Preferences = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_central_movie_page);
-
+        getCentralDatabase();
 
     }
 
@@ -44,6 +46,7 @@ public class central_movie_page extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.users_menu, menu);
+        onPrepareOptionsMenu(menu);
         return true;
     }
 
@@ -68,7 +71,7 @@ public class central_movie_page extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         clearUserFromIntent();
                         clearUserFromPref();
-                        UserId = -1;
+                        userId = -1;
                         checkForuser();
 
                     }
@@ -88,9 +91,9 @@ public class central_movie_page extends AppCompatActivity {
 
     private void checkForuser() {
 
-        UserId = getIntent().getIntExtra(User_ID_KEY, -1);
+        userId = getIntent().getIntExtra(User_ID_KEY, -1);
 
-        if(UserId != -1){
+        if(userId != -1){
             return;
         }
 
@@ -98,9 +101,9 @@ public class central_movie_page extends AppCompatActivity {
             getPrefs();
         }
 
-        UserId = Preferences.getInt(User_ID_KEY, -1);
+        userId = Preferences.getInt(User_ID_KEY, -1);
 
-        if(UserId != -1){
+        if(userId != -1){
             return;
         }
 
@@ -111,7 +114,7 @@ public class central_movie_page extends AppCompatActivity {
 //            DAO.insert(defeUser,altUser);
 //        }
 //
-        Intent intent = MainActivity.intentFactory(getApplicationContext(), UserId);
+        Intent intent = MainActivity.intentFactory(getApplicationContext(), userId);
         startActivity(intent);
 
     }
@@ -139,5 +142,24 @@ public class central_movie_page extends AppCompatActivity {
     public static Intent intentFactory(Context context){
         Intent intent = new Intent(context, central_movie_page.class);
         return intent;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        Users mUser = DAO.getUserById(userId);
+        if (mUser != null) {
+            MenuItem item = menu.findItem(R.id.user1);
+            item.setTitle(mUser.getUsername());
+
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+    private void getCentralDatabase() {
+        DAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build()
+                .GymLogDAO();
+
     }
 }
