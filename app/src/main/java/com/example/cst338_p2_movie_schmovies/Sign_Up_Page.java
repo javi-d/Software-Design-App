@@ -3,6 +3,7 @@ package com.example.cst338_p2_movie_schmovies;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Dao;
 import androidx.room.Room;
 
 import android.content.Context;
@@ -65,7 +66,8 @@ public class Sign_Up_Page extends AppCompatActivity {
                     } else{
                         Users newUser = new Users(signUpUsername, signUpPassword);
                         signUpDAO.insert(newUser);
-                        Intent intent = central_movie_page.intentFactory(getApplicationContext());
+                        newUser = signUpDAO.getUserByUsername(signUpUsername);
+                        Intent intent = central_movie_page.intentFactory(getApplicationContext(), newUser.getUserId());
                         startActivity(intent);
 
                     }

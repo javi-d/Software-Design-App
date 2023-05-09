@@ -21,8 +21,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
-    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.PREFERENCE_KEY";
+    protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
+    protected static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.PREFERENCE_KEY";
 
     ActivityMainBinding mBinding;
 
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
                 .MovieSchmovieDAO();
 
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Intent intent = log_In_Page.intentFactory(this);
+        Intent intent = log_In_Page.intentFactory(this, UserId);
         startActivity(intent);
     }
 

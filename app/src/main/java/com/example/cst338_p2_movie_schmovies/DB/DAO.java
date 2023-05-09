@@ -29,8 +29,8 @@ public interface DAO {
 
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE )
     List<Users> getAllUsers();
-    @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mLogId = :logId")
-    Users getUserById(int logId);
+    @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mUserId = :userId")
+    Users getUserById(int userId);
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mUsername = :username")
     Users getUserByUsername(String username);
 

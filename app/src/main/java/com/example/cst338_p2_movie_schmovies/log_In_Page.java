@@ -1,4 +1,5 @@
 package com.example.cst338_p2_movie_schmovies;
+import static com.example.cst338_p2_movie_schmovies.MainActivity.User_ID_KEY;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -92,10 +93,10 @@ public class log_In_Page extends AppCompatActivity {
             public void onClick(View view) {
                 getLoginValuesFromDisplay();
                 if(checkForUserInDatabase()){
-                    if(!approvePasword()){
+                    if(!approvePassword()){
                         Toast.makeText(log_In_Page.this, "Incorrect password", Toast.LENGTH_SHORT).show();
                     }else{
-                        Intent intent = central_movie_page.intentFactory(getApplicationContext());
+                        Intent intent = central_movie_page.intentFactory(getApplicationContext(), loginUser.getUserId());
                         startActivity(intent);
                     }
                 }
@@ -120,13 +121,14 @@ public class log_In_Page extends AppCompatActivity {
         return true;
     }
 
-    private boolean approvePasword() {
+    private boolean approvePassword() {
         return loginUser.getPassword().equals(lPassword);
     }
 
 
-    public static Intent intentFactory(Context context){
+    public static Intent intentFactory(Context context, int userId){
         Intent intent = new Intent(context, log_In_Page.class);
+        intent.putExtra(User_ID_KEY, userId);
         return intent;
 
     }

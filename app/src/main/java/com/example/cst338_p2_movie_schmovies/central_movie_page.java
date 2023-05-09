@@ -1,5 +1,8 @@
 package com.example.cst338_p2_movie_schmovies;
 
+import static com.example.cst338_p2_movie_schmovies.MainActivity.PREFERENCE_KEY;
+import static com.example.cst338_p2_movie_schmovies.MainActivity.User_ID_KEY;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +24,8 @@ import com.example.cst338_p2_movie_schmovies.DB.DAO;
 import java.util.List;
 
 public class central_movie_page extends AppCompatActivity {
-    private static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
-    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.com.PREFERENCE_KEY";
+//    protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
+//    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.com.PREFERENCE_KEY";
 
 
 
@@ -38,6 +41,10 @@ public class central_movie_page extends AppCompatActivity {
         setContentView(R.layout.activity_central_movie_page);
         getCentralDatabase();
 
+        Intent unusedIntent = getIntent();
+        userId = unusedIntent.getIntExtra(User_ID_KEY, -1);
+
+
     }
 
 
@@ -46,7 +53,7 @@ public class central_movie_page extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.users_menu, menu);
-        onPrepareOptionsMenu(menu);
+//        onPrepareOptionsMenu(menu);
         return true;
     }
 
@@ -139,8 +146,9 @@ public class central_movie_page extends AppCompatActivity {
         getIntent().putExtra(User_ID_KEY, -1);
     }
 
-    public static Intent intentFactory(Context context){
+    public static Intent intentFactory(Context context, int userId){
         Intent intent = new Intent(context, central_movie_page.class);
+        intent.putExtra(User_ID_KEY, userId);
         return intent;
     }
 
@@ -151,7 +159,11 @@ public class central_movie_page extends AppCompatActivity {
             MenuItem item = menu.findItem(R.id.user1);
             item.setTitle(mUser.getUsername());
 
+        } else {
+            MenuItem item = menu.findItem(R.id.user1);
+            item.setTitle("..."); // TODO: Placeholder until we decide what to add instead.
         }
+
         return super.onPrepareOptionsMenu(menu);
     }
     private void getCentralDatabase() {
@@ -162,4 +174,6 @@ public class central_movie_page extends AppCompatActivity {
                 .MovieSchmovieDAO();
 
     }
+
+
 }
