@@ -18,7 +18,7 @@ import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 public class Users {
 
    @PrimaryKey(autoGenerate = true)
-   private int mLogId;
+   private int mUserId;
    private String mUsername;
    private String mPassword;
 
@@ -27,18 +27,17 @@ public class Users {
 
 
    //````````````````````````````````````````Constructor``````````````````````````//
-   public Users( String username, String password, Boolean isAdmin) {
+   public Users( String username, String password) {
       mUsername = username;
       mPassword = password;
-      mIsAdmin = isAdmin;
+      mIsAdmin = Boolean.FALSE;
 
    }
-
 
    @Override
    public String toString() {
       return "Users{" +
-              "mLogId=" + mLogId +
+              "mLogId=" + mUserId +
               ", mUsername='" + mUsername + '\'' +
               ", mPassword='" + mPassword + '\'' +
               ", mIsAdmin=" + mIsAdmin +
@@ -48,12 +47,13 @@ public class Users {
 
    //````````````````````````````````````````Get() and Set()``````````````````````//
 
-   public int getLogId() {
-      return mLogId;
+
+   public int getUserId() {
+      return mUserId;
    }
 
-   public void setLogId(int logId) {
-      mLogId = logId;
+   public void setUserId(int userId) {
+      mUserId = userId;
    }
 
    public String getUsername() {

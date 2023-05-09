@@ -4,56 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".log_In_Page">
-
-    <EditText
-        android:id="@+id/UserNameTextInput"
+    tools:context=".Admin_login">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/AdminUserNameTextInput"
         android:layout_width="343dp"
         android:layout_height="80dp"
         android:layout_marginTop="72dp"
         android:gravity="center"
-        android:hint="@string/usernameInputLabel"
-        android:textSize="25sp"
+        android:hint="@string/enter_admin_username"
         android:inputType="textPersonName"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogInHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/AdminLogInHeader" />
 
-    <EditText
-        android:id="@+id/PasswordTextInput"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/AdminPasswordTextInput"
         android:layout_width="343dp"
         android:layout_height="80dp"
         android:layout_marginTop="28dp"
         android:gravity="center"
-        android:hint="@string/passwordInputLabel"
+        android:hint="@string/enter_admin_password"
         android:inputType="textPassword"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserNameTextInput" />
+        app:layout_constraintTop_toBottomOf="@+id/AdminUserNameTextInput" />
 
     <TextView
-        android:id="@+id/LogInHeader"
+        android:id="@+id/AdminLogInHeader"
         android:layout_width="237dp"
         android:layout_height="84dp"
         android:layout_marginTop="76dp"
         android:gravity="center"
-        android:text="@string/LogInLabel"
+        android:text="@string/admin_login_string"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/LoginSubmitButton"
+        android:id="@+id/AdminLoginSubmitButton"
         android:layout_width="160dp"
         android:layout_height="119dp"
         android:layout_marginTop="76dp"
-        android:text="@string/SubmitButton"
+        android:text="@string/LogInLabel"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordTextInput" />
-
+        app:layout_constraintTop_toBottomOf="@+id/AdminPasswordTextInput" />
 </androidx.constraintlayout.widget.ConstraintLayout>
