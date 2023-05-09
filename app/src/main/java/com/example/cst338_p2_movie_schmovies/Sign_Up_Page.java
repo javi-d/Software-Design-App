@@ -98,7 +98,7 @@ public class Sign_Up_Page extends AppCompatActivity {
         signUpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
                 .build()
-                .GymLogDAO(); //TODO: Remember to change the name to something else. -Cam
+                .MovieSchmovieDAO(); //TODO: Remember to change the name to something else. -Cam
     }
     public static  Intent intentFactory(Context context) {
         Intent intent = new Intent(context, Sign_Up_Page.class);
@@ -110,7 +110,7 @@ public class Sign_Up_Page extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build()
-                .GymLogDAO();
+                .MovieSchmovieDAO();
 
     }
 

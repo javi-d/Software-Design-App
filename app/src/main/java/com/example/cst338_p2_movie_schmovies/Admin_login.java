@@ -91,7 +91,7 @@ public class Admin_login extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build()
-                .GymLogDAO();
+                .MovieSchmovieDAO();
 
     }
 
