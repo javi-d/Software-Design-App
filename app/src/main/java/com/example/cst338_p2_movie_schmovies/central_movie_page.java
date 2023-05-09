@@ -121,7 +121,7 @@ public class central_movie_page extends AppCompatActivity {
 //            DAO.insert(defeUser,altUser);
 //        }
 //
-        Intent intent = MainActivity.intentFactory(getApplicationContext(), userId);
+        Intent intent = MainActivity.intentFactory(getApplicationContext());
         startActivity(intent);
 
     }

@@ -126,9 +126,9 @@ public class log_In_Page extends AppCompatActivity {
     }
 
 
-    public static Intent intentFactory(Context context, int userId){
+    public static Intent intentFactory(Context context){
         Intent intent = new Intent(context, log_In_Page.class);
-        intent.putExtra(User_ID_KEY, userId);
+//        intent.putExtra(User_ID_KEY, userId);
         return intent;
 
     }

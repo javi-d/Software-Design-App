@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Intent intent = log_In_Page.intentFactory(this, UserId);
+        Intent intent = log_In_Page.intentFactory(this);
         startActivity(intent);
     }
 
@@ -164,9 +164,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static Intent intentFactory(Context applicationContext, int logId) {
+    public static Intent intentFactory(Context applicationContext) {
         Intent intent = new Intent(applicationContext, MainActivity.class);
-        intent.putExtra(User_ID_KEY, logId);
+//        intent.putExtra(User_ID_KEY);
         return intent;
     }
 
