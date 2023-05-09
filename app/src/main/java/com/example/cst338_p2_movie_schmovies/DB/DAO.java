@@ -6,7 +6,6 @@
 
 package com.example.cst338_p2_movie_schmovies.DB;
 import com.example.cst338_p2_movie_schmovies.Users;
-import com.example.cst338_p2_movie_schmovies.Movie;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
