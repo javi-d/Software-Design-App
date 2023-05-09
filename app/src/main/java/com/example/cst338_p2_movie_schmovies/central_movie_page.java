@@ -159,7 +159,7 @@ public class central_movie_page extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build()
-                .GymLogDAO();
+                .MovieSchmovieDAO();
 
     }
 }

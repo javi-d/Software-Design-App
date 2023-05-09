@@ -74,7 +74,7 @@ public class log_In_Page extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build()
-                .GymLogDAO();
+                .MovieSchmovieDAO();
 
     }
 

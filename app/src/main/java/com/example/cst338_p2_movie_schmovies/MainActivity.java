@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
                 .build()
-                .GymLogDAO();
+                .MovieSchmovieDAO();
 
 //        refreshDisplay();
 
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
                 .build()
-                .GymLogDAO();
+                .MovieSchmovieDAO();
     }
 
     private void checkForUser() {
