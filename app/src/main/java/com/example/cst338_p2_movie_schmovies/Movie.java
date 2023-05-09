@@ -19,7 +19,7 @@ public class Movie {
 
     private String mAgeRating;
 
-    private HashMap<String, List<String>> theaterShowTimes; // String for Theater location/name and String List for movie Times at that Theater.
+//    private HashMap<String, List<String>> theaterShowTimes; // String for Theater location/name and String List for movie Times at that Theater.
 
     //````````````````````````````````````````````Constructor and toString()`````````````````````````````````````````//
 
@@ -27,7 +27,7 @@ public class Movie {
         mMovieName = movieName;
         mSynopsis = synopsis;
         mAgeRating = ageRating;
-        theaterShowTimes = new HashMap<>();
+//        theaterShowTimes = new HashMap<>();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class Movie {
                 ", mMovieName='" + mMovieName + '\'' +
                 ", mSynopsis='" + mSynopsis + '\'' +
                 ", mAgeRating='" + mAgeRating + '\'' +
-                ", theaterShowTimes=" + theaterShowTimes +
+//                ", theaterShowTimes=" + theaterShowTimes +
                 '}';
     }
 //````````````````````````````````````````````Getter and Setters````````````````````````````````````//
@@ -75,11 +75,19 @@ public class Movie {
         mAgeRating = ageRating;
     }
 
-    public HashMap<String, List<String>> getTheaterShowTimes() {
-        return theaterShowTimes;
+////    public HashMap<String, List<String>> getTheaterShowTimes() {
+//        return theaterShowTimes;
+//    }
+
+//    public void setTheaterShowTimes(HashMap<String, List<String>> theaterShowTimes) {
+//        this.theaterShowTimes = theaterShowTimes;
+//    }
+
+    public int getMovieLogId() {
+        return mMovieLogId;
     }
 
-    public void setTheaterShowTimes(HashMap<String, List<String>> theaterShowTimes) {
-        this.theaterShowTimes = theaterShowTimes;
+    public void setMovieLogId(int movieLogId) {
+        mMovieLogId = movieLogId;
     }
 }
