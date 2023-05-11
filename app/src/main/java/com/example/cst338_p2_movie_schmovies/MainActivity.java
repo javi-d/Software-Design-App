@@ -156,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
             mDAO.insert(defaultUser,altUser, admin1, admin2, imposter);
         }
 
-
         Intent intent = log_In_Page.intentFactory(this);
         startActivity(intent);
     }

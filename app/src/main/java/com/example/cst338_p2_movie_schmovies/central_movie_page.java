@@ -6,6 +6,8 @@ import static com.example.cst338_p2_movie_schmovies.MainActivity.User_ID_KEY;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Dao;
 import androidx.room.Room;
 
@@ -21,6 +23,7 @@ import android.view.MenuItem;
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 import com.example.cst338_p2_movie_schmovies.DB.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class central_movie_page extends AppCompatActivity {
@@ -39,7 +42,29 @@ public class central_movie_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_central_movie_page);
+
+        RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
+
+        List<Movie> items = new ArrayList<>();
+        items.add(new Movie("Gardians of the Galaxy Vol.3", "Heroes who save the galaxy", "Pg-13"));
+        items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13"));
+        items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13"));
+        items.add(new Movie("Dungeons and dragons ", "People who live in a different realm", "Pg-13"));
+        items.add(new Movie("Suzume", "Anime movie", "Pg-13"));
+        items.add(new Movie("Spiderman Across the Spider Verse ", "Mile Morales travels into the multiverse and is on the run due to his actions that he wants to do", "Pg-13"));
+
+
         getCentralDatabase();
+
+
+
+//        Movie movie1 = new Movie("Guardians of the Galaxy Vol.3", "Heroes who save the galaxy", "PG-13");
+//        DAO.insert(movie1);
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new AdapterClass(getApplicationContext(),items));
+
 
         Intent unusedIntent = getIntent();
         userId = unusedIntent.getIntExtra(User_ID_KEY, -1);

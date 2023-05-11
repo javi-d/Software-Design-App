@@ -14,25 +14,24 @@
         />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/movieTitle"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
         android:layout_toEndOf="@id/movieBanner"
-        android:textColor="@color/black"
-        android:textSize="20dp"
         android:text="Title holder"
-        />
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
         android:id="@+id/synopsis"
-        android:layout_toEndOf="@id/movieBanner"
+        android:layout_width="288dp"
+
+        android:layout_height="wrap_content"
         android:layout_below="@id/movieTitle"
-        android:textColor="#575353"
+        android:layout_toEndOf="@id/movieBanner"
         android:text="Synopsis"
-        />
+        android:textColor="#575353"
+        android:textSize="15sp" />
 
 
 </RelativeLayout>
