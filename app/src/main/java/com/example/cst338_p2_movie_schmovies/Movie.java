@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey;
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
+import com.example.cst338_p2_movie_schmovies.DB.Theater;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +20,8 @@ public class Movie {
 
     private String mAgeRating;
 
-//    private HashMap<String, List<String>> theaterShowTimes; // String for Theater location/name and String List for movie Times at that Theater.
+    private String mImageLink;
+
 
     //````````````````````````````````````````````Constructor and toString()`````````````````````````````````````````//
 
@@ -75,13 +77,6 @@ public class Movie {
         mAgeRating = ageRating;
     }
 
-////    public HashMap<String, List<String>> getTheaterShowTimes() {
-//        return theaterShowTimes;
-//    }
-
-//    public void setTheaterShowTimes(HashMap<String, List<String>> theaterShowTimes) {
-//        this.theaterShowTimes = theaterShowTimes;
-//    }
 
     public int getMovieLogId() {
         return mMovieLogId;
@@ -89,5 +84,13 @@ public class Movie {
 
     public void setMovieLogId(int movieLogId) {
         mMovieLogId = movieLogId;
+    }
+
+    public String getImageLink() {
+        return mImageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        mImageLink = imageLink;
     }
 }

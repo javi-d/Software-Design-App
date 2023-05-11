@@ -45,8 +45,25 @@ public interface DAO {
     void delete(Movie movie);
 
     @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE )
-    List<Movie> getMovieByName();
+    List<Movie> getAllMovies();
+    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE )
+    Movie getMovieByName();
     @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE + " WHERE mMovieLogId = :logId") // Not Sure why it is mad at mMovieLogId but it is.
-    List<Movie> getMovieById(int logId);
+    Movie getMovieById(int logId);
 
+    @Insert
+    void insert(Theater... theaters);
+
+    @Update
+    void update(Theater... theaters);
+
+    @Delete
+    void delete(Theater theater);
+
+    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
+    List<Theater> getAllTheaters();
+    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
+    Theater getTheaterByName();
+    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterId = :theaterId") // Not Sure why it is mad at mMovieLogId but it is.
+    Theater getTheaterById(int theaterId);
 }

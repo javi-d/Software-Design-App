@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
     private void getDatabase() {
         mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
                 .MovieSchmovieDAO();
     }
