@@ -21,6 +21,12 @@ public class Converters  {
 //                .build()
 //                .MovieSchmovieDAO();
 //    }
+
+    public void useAppContext() {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+    }
+
     @TypeConverter
     public String convertHashMapToString(HashMap<Theater, List<String>> theaterTimes) {
         StringBuilder sb = new StringBuilder();
