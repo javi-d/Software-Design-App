@@ -46,12 +46,12 @@ public class central_movie_page extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
 
         List<Movie> items = new ArrayList<>();
-        items.add(new Movie("Gardians of the Galaxy Vol.3", "Heroes who save the galaxy", "Pg-13"));
-        items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13"));
-        items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13"));
-        items.add(new Movie("Dungeons and dragons ", "People who live in a different realm", "Pg-13"));
-        items.add(new Movie("Suzume", "Anime movie", "Pg-13"));
-        items.add(new Movie("Spiderman Across the Spider Verse ", "Mile Morales travels into the multiverse and is on the run due to his actions that he wants to do", "Pg-13"));
+        items.add(new Movie("Gardians of the Galaxy Vol.3", "Heroes who save the galaxy", "Pg-13" , R.drawable.a));
+        items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13", R.drawable.b));
+        items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13", R.drawable.c));
+        items.add(new Movie("Dungeons and dragons ", "People who live in a different realm", "Pg-13", R.drawable.d));
+        items.add(new Movie("Suzume", "Anime movie", "Pg-13" , R.drawable.e));
+        items.add(new Movie("Spiderman Across the Spider Verse ", "Mile Morales travels into the multiverse and is on the run due to his actions that he wants to do", "Pg-13", R.drawable.f));
 
 
         getCentralDatabase();

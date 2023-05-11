@@ -27,7 +27,7 @@ public class AdapterClass extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        holder.movieBanner.setImageResource(items.get(position).);
+        holder.movieBanner.setImageResource(items.get(position).getImage());
         holder.movieTitle.setText(items.get(position).getMovieName());
         holder.synopsis.setText(items.get(position).getSynopsis());
     }

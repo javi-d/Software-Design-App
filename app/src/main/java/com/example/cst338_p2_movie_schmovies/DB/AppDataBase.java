@@ -10,7 +10,7 @@ import androidx.room.TypeConverters;
 import com.example.cst338_p2_movie_schmovies.Movie;
 import com.example.cst338_p2_movie_schmovies.Users;
 
-@Database(entities = {Users.class, Movie.class, Theater.class}, version = 5)
+@Database(entities = {Users.class, Movie.class, Theater.class}, version = 6)
 public abstract class AppDataBase extends RoomDatabase {
     public static final String DATABASE_NAME = "Users.db";
     public static final String USERS_TABLE = "users_table";

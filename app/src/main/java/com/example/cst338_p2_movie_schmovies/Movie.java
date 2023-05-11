@@ -4,12 +4,6 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 
-import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
-import com.example.cst338_p2_movie_schmovies.DB.Theater;
-
-import java.util.HashMap;
-import java.util.List;
-
 @Entity(tableName = AppDataBase.MOVIE_TABLE)
 public class Movie {
 
@@ -23,12 +17,16 @@ public class Movie {
     private String mImageLink;
 
 
+    private int mImage;
+
+
     //````````````````````````````````````````````Constructor and toString()`````````````````````````````````````````//
 
-    public Movie(String movieName, String synopsis, String ageRating) {
+    public Movie(String movieName, String synopsis, String ageRating, int image) {
         mMovieName = movieName;
         mSynopsis = synopsis;
         mAgeRating = ageRating;
+        mImage = image;
 //        theaterShowTimes = new HashMap<>();
     }
 
@@ -44,6 +42,14 @@ public class Movie {
     }
 //````````````````````````````````````````````Getter and Setters````````````````````````````````````//
 
+
+    public int getImage() {
+        return mImage;
+    }
+
+    public void setImage(int image) {
+        this.mImage = image;
+    }
 
     public int getLogId() {
         return mMovieLogId;
