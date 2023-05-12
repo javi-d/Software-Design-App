@@ -26,4 +26,8 @@
     <string name="logout">logout</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="title_here">Title here</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="titleHolder">Title</string>
+    <string name="textHolder">Text</string>
 </resources>

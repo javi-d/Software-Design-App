@@ -51,8 +51,11 @@ public class Guest_Central_Page extends AppCompatActivity implements RecyclerVie
         items.add(new Movie("Spiderman Across the Spider Verse ", "Mile Morales travels into the multiverse and is on the run due to his actions that he wants to do", "Pg-13", R.drawable.f));
 
 
-        getCentralDatabase();
 
+        getCentralDatabase();
+        for (Movie movie : items) {
+            DAO.insert(movie);
+        }
 
 
 //        Movie movie1 = new Movie("Guardians of the Galaxy Vol.3", "Heroes who save the galaxy", "PG-13");
@@ -67,8 +70,9 @@ public class Guest_Central_Page extends AppCompatActivity implements RecyclerVie
                 String movieName = items.get(position).getMovieName();
                 Movie movie = DAO.getMovieByName(movieName);
                 Intent intent = new Intent(getApplicationContext(), gMovie_View.class);
-                intent.putExtra(MOVIE_KEY, items.get(position).getLogId());
-                intent.putExtra(User_ID_KEY, userId);
+                int id = movie.getLogId();
+                intent.putExtra(MOVIE_KEY, id);
+//                intent.putExtra(User_ID_KEY, userId);
                 startActivity(intent);
             }
         });
