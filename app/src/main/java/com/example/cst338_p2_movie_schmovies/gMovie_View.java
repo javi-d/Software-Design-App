@@ -47,29 +47,9 @@ public class gMovie_View extends AppCompatActivity {
         int movieId = mIntent.getIntExtra(MOVIE_KEY,-1);
         Movie movie = DAO.getMovieById(movieId);
 
-        if (movie != null) {
-//            Toast.makeText(this, movie.getSynopsis(), Toast.LENGTH_SHORT).show();
-            String movieName = movie.getMovieName();
-            String synopsis = movie.getSynopsis();
-            int image = movie.getImage();
-            if (movieName != null) {
-                movieTitleField.setText(movieName);
-            }else {
-                Toast.makeText(this, "OOPS No Title", Toast.LENGTH_SHORT).show();
-            }
-            if (synopsis != null) {
-                movieSynopsisField.setText(synopsis);
-            }else {
-                Toast.makeText(this, "OOPS No text", Toast.LENGTH_SHORT).show();
-            }
-            if (image == 0) {
-                movieBannerField.setImageResource(image);
-            }else {
-                Toast.makeText(this, "OOPS No image", Toast.LENGTH_SHORT).show();
-            }
-        }else {
-            Toast.makeText(this, "OOPS No Movie", Toast.LENGTH_SHORT).show();
-        }
+        movieTitleField.setText(movie.getMovieName());
+        movieSynopsisField.setText(movie.getSynopsis());
+        movieBannerField.setImageResource(movie.getImage());
 
 
 
