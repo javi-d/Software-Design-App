@@ -60,7 +60,7 @@ public interface DAO {
 //
 //    @Delete
 //    void delete(Theater theater);
-//
+
 //    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
 //    List<Theater> getAllTheaters();
 //    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterName = :theaterName")

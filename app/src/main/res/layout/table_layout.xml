@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TableRow>
+        <TextView
+            android:text="Location"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="Date "
+            android:padding="3dip" />
+
+        <TextView
+            android:layout_width="287dp"
+            android:gravity="left"
+            android:padding="3dip"
+            android:text="Time" />
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090"  android:layout_width="wrap_content"/>
+
+    <TableRow>
+        <TextView
+            android:text="Marina"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="May 13"
+            android:padding="3dip" />
+        <TextView
+            android:text="6:00PM, 7:30 PM, 10:00PM"
+            android:gravity="left"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:text="May 20"
+            android:padding="3dip" />
+        <TextView
+            android:text="6:00PM, 7:30 PM, 10:00PM"
+            android:gravity="left"
+            android:padding="3dip" />
+    </TableRow>
+
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090"  android:layout_width="wrap_content"/>
+
+
+    <TableRow>
+        <TextView
+            android:text="Del Monte"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="May 15"
+            android:padding="3dip" />
+        <TextView
+            android:text="6:00PM, 7:30 PM, 10:00PM"
+            android:gravity="left"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="May 5"
+            android:padding="3dip" />
+        <TextView
+            android:text="6:00PM, 7:30 PM, 10:00PM"
+            android:gravity="left"
+            android:padding="3dip" />
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090"  android:layout_width="wrap_content"/>
+
+
+    <TableRow>
+        <TextView
+            android:text="Salinas"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="May 16"
+            android:padding="3dip" />
+        <TextView
+            android:text="6:00PM, 7:30 PM, 10:00PM"
+            android:gravity="left"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:text="May 28"
+            android:padding="3dip" />
+        <TextView
+            android:text="6:00PM, 7:30 PM, 10:00PM"
+            android:gravity="left"
+            android:padding="3dip" />
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090"  android:layout_width="wrap_content"/>
+
+
+
+
+
+
+
+
+
+
+
+
+</TableLayout>
+
