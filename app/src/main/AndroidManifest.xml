@@ -17,6 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".central_movie_page"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".Sign_Up_Page"
