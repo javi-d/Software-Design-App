@@ -42,8 +42,9 @@ public class Movie_View extends AppCompatActivity {
         movieSynopsisField = findViewById(R.id.movieSynopsis);
         movieBannerField = findViewById(R.id.movieBannerImage);
 
-        int movieId = getIntent().getIntExtra(MOVIE_KEY,-1);
-        Movie movie = DAO.getMovieById(movieId);
+        Intent mIntent = getIntent();
+        int movieId = mIntent.getIntExtra(MOVIE_KEY,-1);
+        Movie movie = DAO.getMovieById(movieId);;
 
         movieTitleField.setText(movie.getMovieName());
         movieSynopsisField.setText(movie.getSynopsis());

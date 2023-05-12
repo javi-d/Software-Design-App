@@ -72,7 +72,8 @@ public class central_movie_page extends AppCompatActivity{
                 String movieName = items.get(position).getMovieName();
                 Movie movie = DAO.getMovieByName(movieName);
                 Intent intent = new Intent(getApplicationContext(), Movie_View.class);
-                intent.putExtra(MOVIE_KEY, items.get(position).getLogId());
+                int id = movie.getLogId();
+                intent.putExtra(MOVIE_KEY, id);
                 intent.putExtra(User_ID_KEY, userId);
                 startActivity(intent);
             }
