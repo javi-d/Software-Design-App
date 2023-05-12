@@ -2,6 +2,7 @@ package com.example.cst338_p2_movie_schmovies;
 
 import static com.example.cst338_p2_movie_schmovies.MainActivity.PREFERENCE_KEY;
 import static com.example.cst338_p2_movie_schmovies.MainActivity.User_ID_KEY;
+import static com.example.cst338_p2_movie_schmovies.MainActivity.MOVIE_KEY;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -26,7 +27,7 @@ import com.example.cst338_p2_movie_schmovies.DB.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class central_movie_page extends AppCompatActivity {
+public class central_movie_page extends AppCompatActivity{
 //    protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
 //    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.com.PREFERENCE_KEY";
 
@@ -37,6 +38,7 @@ public class central_movie_page extends AppCompatActivity {
     private DAO DAO;
     private int userId  = -1;
     private SharedPreferences Preferences = null;
+    List<Movie> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class central_movie_page extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
 
-        List<Movie> items = new ArrayList<>();
+
         items.add(new Movie("Gardians of the Galaxy Vol.3", "Heroes who save the galaxy", "Pg-13" , R.drawable.a));
         items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13", R.drawable.b));
         items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13", R.drawable.c));
@@ -64,13 +66,19 @@ public class central_movie_page extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        final AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(),items);
+        AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(), items, new RecyclerViewInterface() {
+            @Override
+            public void onItemClick(int position) {
+                String movieName = items.get(position).getMovieName();
+                Movie movie = DAO.getMovieByName(movieName);
+                Intent intent = new Intent(getApplicationContext(), Movie_View.class);
+                intent.putExtra(MOVIE_KEY, items.get(position).getLogId());
+                intent.putExtra(User_ID_KEY, userId);
+                startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(ItemAdapter);
 
-        ItemAdapter.setOnClickListener( new ItemAdapter.OnClickListener() {
-
-          Intent intent = Movie_View.intentFactory(getApplicationContext(), userId, )
-        });
 
 
         Intent unusedIntent = getIntent();
@@ -193,7 +201,7 @@ public class central_movie_page extends AppCompatActivity {
 
         } else {
             MenuItem item = menu.findItem(R.id.user1);
-            item.setTitle("..."); // TODO: Placeholder until we decide what to add instead.
+            item.setTitle("...");
         }
 
         return super.onPrepareOptionsMenu(menu);
@@ -206,6 +214,7 @@ public class central_movie_page extends AppCompatActivity {
                 .MovieSchmovieDAO();
 
     }
+
 
 
 }

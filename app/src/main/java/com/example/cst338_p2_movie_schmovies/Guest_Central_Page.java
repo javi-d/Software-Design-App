@@ -1,5 +1,6 @@
 package com.example.cst338_p2_movie_schmovies;
 
+import static com.example.cst338_p2_movie_schmovies.MainActivity.MOVIE_KEY;
 import static com.example.cst338_p2_movie_schmovies.MainActivity.PREFERENCE_KEY;
 import static com.example.cst338_p2_movie_schmovies.MainActivity.User_ID_KEY;
 
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Guest_Central_Page extends AppCompatActivity {
+public class Guest_Central_Page extends AppCompatActivity implements RecyclerViewInterface {
 
     private com.example.cst338_p2_movie_schmovies.DB.DAO DAO;
     private int userId  = -1;
@@ -37,6 +38,7 @@ public class Guest_Central_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_central_movie_page);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
 
@@ -58,7 +60,19 @@ public class Guest_Central_Page extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AdapterClass(getApplicationContext(),items));
+
+       AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(), items, new RecyclerViewInterface() {
+            @Override
+            public void onItemClick(int position) {
+                String movieName = items.get(position).getMovieName();
+                Movie movie = DAO.getMovieByName(movieName);
+                Intent intent = new Intent(getApplicationContext(), gMovie_View.class);
+                intent.putExtra(MOVIE_KEY, items.get(position).getLogId());
+                intent.putExtra(User_ID_KEY, userId);
+                startActivity(intent);
+            }
+        });
+        recyclerView.setAdapter(ItemAdapter);
 
 
 
@@ -189,4 +203,8 @@ public class Guest_Central_Page extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+
+    }
 }

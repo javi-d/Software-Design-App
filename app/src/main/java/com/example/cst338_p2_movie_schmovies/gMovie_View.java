@@ -11,7 +11,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Movie_View extends AppCompatActivity {
+
+public class gMovie_View extends AppCompatActivity {
 
 
     private TextView movieTitleField;
@@ -31,6 +32,8 @@ public class Movie_View extends AppCompatActivity {
     }
 
     private void wireUpDisplay() {
+
+
     }
     public Intent intentFactory(Context context, int userId, int movieId) {
         Intent intent = new Intent(this, Movie_View.class);

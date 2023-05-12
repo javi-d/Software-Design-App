@@ -14,10 +14,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     TextView synopsis;
 
 
-    public ViewHolder(@NonNull View itemView) {
+    public ViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
         super(itemView);
         movieBanner = itemView.findViewById(R.id.movieBanner);
         movieTitle = itemView.findViewById(R.id.movieTitle);
         synopsis = itemView.findViewById(R.id.synopsis);
+
+
     }
 }
