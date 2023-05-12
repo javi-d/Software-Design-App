@@ -26,15 +26,10 @@ import com.example.cst338_p2_movie_schmovies.DB.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class central_movie_page extends AppCompatActivity {
-//    protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
-//    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.com.PREFERENCE_KEY";
 
+public class Guest_Central_Page extends AppCompatActivity {
 
-
-
-
-    private DAO DAO;
+    private com.example.cst338_p2_movie_schmovies.DB.DAO DAO;
     private int userId  = -1;
     private SharedPreferences Preferences = null;
 
@@ -63,14 +58,8 @@ public class central_movie_page extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new AdapterClass(getApplicationContext(),items));
 
-        final AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(),items);
-        recyclerView.setAdapter(ItemAdapter);
-
-        ItemAdapter.setOnClickListener( new ItemAdapter.OnClickListener() {
-
-          Intent intent = Movie_View.intentFactory(getApplicationContext(), userId, )
-        });
 
 
         Intent unusedIntent = getIntent();
@@ -102,17 +91,14 @@ public class central_movie_page extends AppCompatActivity {
 
     private void logoutUser() {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
-        alertBuilder.setMessage(R.string.logout);
+        alertBuilder.setMessage("Sign In or Sign Up?");
 
         alertBuilder.setPositiveButton(getString(R.string.yes),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        clearUserFromIntent();
-                        clearUserFromPref();
-                        userId = -1;
-                        checkForuser();
-
+                        Intent intent = MainActivity.intentFactory(getApplicationContext());
+                        startActivity(intent);
                     }
                 });
 
@@ -128,73 +114,68 @@ public class central_movie_page extends AppCompatActivity {
 
     }
 
-    private void checkForuser() {
-
-        userId = getIntent().getIntExtra(User_ID_KEY, -1);
-
-        if(userId != -1){
-            return;
-        }
-
-        if(Preferences == null){
-            getPrefs();
-        }
-
-        userId = Preferences.getInt(User_ID_KEY, -1);
-
-        if(userId != -1){
-            return;
-        }
-
-//        List<Users> user = DAO.getAllUsers();
-//        if(user.size()<= 0){
-//            Users defeUser = new Users("") ;
-//            Users altUser = new Users("");
-//            DAO.insert(defeUser,altUser);
+//    private void checkForuser() {
+//
+//        userId = getIntent().getIntExtra(User_ID_KEY, -1);
+//
+//        if(userId != -1){
+//            return;
 //        }
 //
-        Intent intent = MainActivity.intentFactory(getApplicationContext());
-        startActivity(intent);
+//        if(Preferences == null){
+//            getPrefs();
+//        }
+//
+//        userId = Preferences.getInt(User_ID_KEY, -1);
+//
+//        if(userId != -1){
+//            return;
+//        }
+//
+////        List<Users> user = DAO.getAllUsers();
+////        if(user.size()<= 0){
+////            Users defeUser = new Users("") ;
+////            Users altUser = new Users("");
+////            DAO.insert(defeUser,altUser);
+////        }
+////
+//        Intent intent = MainActivity.intentFactory(getApplicationContext());
+//        startActivity(intent);
+//
+//    }
 
-    }
+//    private void clearUserFromPref() {
+//        addUserToPreference(-1);
+//    }
 
-    private void clearUserFromPref() {
-        addUserToPreference(-1);
-    }
+//    private void addUserToPreference(int i) {
+//        if(Preferences == null){
+//            getPrefs();
+//        }
+//        SharedPreferences.Editor editor = Preferences.edit();
+//        editor.putInt(User_ID_KEY, i);
+//    }
+//
+//    private void getPrefs() {
+//        Preferences = this.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE);
+//    }
 
-    private void addUserToPreference(int i) {
-        if(Preferences == null){
-            getPrefs();
-        }
-        SharedPreferences.Editor editor = Preferences.edit();
-        editor.putInt(User_ID_KEY, i);
-    }
+//    private void clearUserFromIntent() {
+//        getIntent().putExtra(User_ID_KEY, -1);
+//    }
 
-    private void getPrefs() {
-        Preferences = this.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE);
-    }
-
-    private void clearUserFromIntent() {
-        getIntent().putExtra(User_ID_KEY, -1);
-    }
-
-    public static Intent intentFactory(Context context, int userId){
-        Intent intent = new Intent(context, central_movie_page.class);
-        intent.putExtra(User_ID_KEY, userId);
+    public static Intent intentFactory(Context context){
+        Intent intent = new Intent(context, Guest_Central_Page.class);
+//        intent.putExtra(User_ID_KEY, userId);
         return intent;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        Users mUser = DAO.getUserById(userId);
-        if (mUser != null) {
-            MenuItem item = menu.findItem(R.id.user1);
-            item.setTitle(mUser.getUsername());
 
-        } else {
-            MenuItem item = menu.findItem(R.id.user1);
-            item.setTitle("..."); // TODO: Placeholder until we decide what to add instead.
-        }
+        MenuItem item = menu.findItem(R.id.user1);
+        item.setTitle("Login?");
+
 
         return super.onPrepareOptionsMenu(menu);
     }

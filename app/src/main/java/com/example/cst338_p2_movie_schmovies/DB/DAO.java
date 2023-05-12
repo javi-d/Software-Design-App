@@ -6,6 +6,7 @@
 
 package com.example.cst338_p2_movie_schmovies.DB;
 import com.example.cst338_p2_movie_schmovies.Movie;
+import com.example.cst338_p2_movie_schmovies.Theater;
 import com.example.cst338_p2_movie_schmovies.Users;
 
 import androidx.room.Dao;
@@ -46,10 +47,10 @@ public interface DAO {
 
     @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE )
     List<Movie> getAllMovies();
-    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE )
-    Movie getMovieByName();
-    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE + " WHERE mMovieLogId = :logId") // Not Sure why it is mad at mMovieLogId but it is.
-    Movie getMovieById(int logId);
+    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE + " WHERE mMovieName = :movieName")
+    Movie getMovieByName(String movieName);
+    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE + " WHERE mMovieLogId = :movieId") // Not Sure why it is mad at mMovieLogId but it is.
+    Movie getMovieById(int movieId);
 
     @Insert
     void insert(Theater... theaters);
@@ -62,8 +63,8 @@ public interface DAO {
 
     @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
     List<Theater> getAllTheaters();
-    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
-    Theater getTheaterByName();
+    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterName = :theaterName")
+    Theater getTheaterByName(String theaterName);
     @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterId = :theaterId") // Not Sure why it is mad at mMovieLogId but it is.
     Theater getTheaterById(int theaterId);
 }

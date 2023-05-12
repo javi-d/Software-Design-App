@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
     protected static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.PREFERENCE_KEY";
+    protected static final String MOVIE_KEY = "com.example.cst338_p2_movie_schmovies.MOVIE_KEY";
 
     ActivityMainBinding mBinding;
 
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             //TODO: Make it so that non users have their own movie view without user functions until logged in
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, central_movie_page.class);
+                Intent intent = Guest_Central_Page.intentFactory(getApplicationContext());
                 startActivity(intent);
             }
         });

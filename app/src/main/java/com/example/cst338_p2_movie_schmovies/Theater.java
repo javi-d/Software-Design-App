@@ -1,9 +1,10 @@
-package com.example.cst338_p2_movie_schmovies.DB;
+package com.example.cst338_p2_movie_schmovies;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = AppDataBase.THEATER_TABLE)
+import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
+
 public class Theater {
     @PrimaryKey(autoGenerate = true)
     private int mTheaterId;
