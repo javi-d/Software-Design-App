@@ -52,19 +52,19 @@ public interface DAO {
     @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE + " WHERE mMovieLogId = :movieId") // Not Sure why it is mad at mMovieLogId but it is.
     Movie getMovieById(int movieId);
 
-    @Insert
-    void insert(Theater... theaters);
+//    @Insert
+//    void insert(Theater... theaters);
+//
+//    @Update
+//    void update(Theater... theaters);
+//
+//    @Delete
+//    void delete(Theater theater);
 
-    @Update
-    void update(Theater... theaters);
-
-    @Delete
-    void delete(Theater theater);
-
-    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
-    List<Theater> getAllTheaters();
-    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterName = :theaterName")
-    Theater getTheaterByName(String theaterName);
-    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterId = :theaterId") // Not Sure why it is mad at mMovieLogId but it is.
-    Theater getTheaterById(int theaterId);
+//    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
+//    List<Theater> getAllTheaters();
+//    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterName = :theaterName")
+//    Theater getTheaterByName(String theaterName);
+//    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterId = :theaterId") // Not Sure why it is mad at mMovieLogId but it is.
+//    Theater getTheaterById(int theaterId);
 }

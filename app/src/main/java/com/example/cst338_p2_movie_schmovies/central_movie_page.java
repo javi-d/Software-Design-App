@@ -67,14 +67,14 @@ public class central_movie_page extends AppCompatActivity {
         final AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(),items);
         recyclerView.setAdapter(ItemAdapter);
 
-        ItemAdapter.setOnClickListener( new ItemAdapter.OnClickListener() {
-
-          Intent intent = Movie_View.intentFactory(getApplicationContext(), userId, )
-        });
-
-
-        Intent unusedIntent = getIntent();
-        userId = unusedIntent.getIntExtra(User_ID_KEY, -1);
+//        ItemAdapter.setOnClickListener( new ItemAdapter.OnClickListener() {
+//
+//          Intent intent = Movie_View.intentFactory(getApplicationContext(), userId, )
+//        });
+//
+//
+//        Intent unusedIntent = getIntent();
+//        userId = unusedIntent.getIntExtra(User_ID_KEY, -1);
 
 
     }
