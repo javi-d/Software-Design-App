@@ -50,14 +50,14 @@ public class gMovie_View extends AppCompatActivity {
         movieTitleField = findViewById(R.id.GuestMovieTitleHeader);
         movieSynopsisField = findViewById(R.id.GuestMovieSynopsis);
         movieBannerField = findViewById(R.id.GuestMovieBannerImage);
-        movieLocation = findViewById(R.id.movieLocation);
-        movieDate1 = findViewById(R.id.movieDate1);
-        movieDate2 = findViewById(R.id.movieDate2);
-        movieDate3 = findViewById(R.id.movieDate3);
+        movieLocation = findViewById(R.id.GuestmovieLocation);
+        movieDate1 = findViewById(R.id.GuestmovieDate1);
+        movieDate2 = findViewById(R.id.GuestmovieDate2);
+        movieDate3 = findViewById(R.id.GuestmovieDate3);
 
-        movieTime1 = findViewById(R.id.movieTime1);
-        movieTime2 = findViewById(R.id.movieTime2);
-        movieTime3 = findViewById(R.id.movieTime3);
+        movieTime1 = findViewById(R.id.GuestmovieTime1);
+        movieTime2 = findViewById(R.id.GuestmovieTime2);
+        movieTime3 = findViewById(R.id.GuestmovieTime3);
 //        movieTitleField.setText(R.string.titleHolder);
 //        movieSynopsisField.setText(R.string.textHolder);
 
