@@ -70,7 +70,7 @@ public class Guest_Central_Page extends AppCompatActivity implements RecyclerVie
                 String movieName = items.get(position).getMovieName();
                 Movie movie = DAO.getMovieByName(movieName);
                 Intent intent = new Intent(getApplicationContext(), gMovie_View.class);
-                int id = movie.getLogId();
+                int id = movie.getMovieLogId();
                 intent.putExtra(MOVIE_KEY, id);
 //                intent.putExtra(User_ID_KEY, userId);
                 startActivity(intent);

@@ -30,4 +30,7 @@
     <string name="synopsis">Synopsis</string>
     <string name="titleHolder">Title</string>
     <string name="textHolder">Text</string>
+    <string name="enter_movie_title">Enter Movie Title:</string>
+    <string name="add_image_url">Add Image URL:</string>
+    <string name="enter_suggested_age_rating">Enter Suggested Age Rating:</string>
 </resources>

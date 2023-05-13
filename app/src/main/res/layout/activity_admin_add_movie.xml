@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminAddMovie">
+
+
+    <EditText
+        android:id="@+id/imageURLInput"
+
+        android:layout_width="406dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:hint="@string/add_image_url"
+        android:scrollbarTrackHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <EditText
+        android:id="@+id/TitleInput"
+        android:layout_width="406dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:hint="@string/enter_movie_title"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageURLInput" />
+
+    <EditText
+        android:id="@+id/AgeRatingInput"
+        android:layout_width="406dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:hint="@string/enter_suggested_age_rating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleInput" />
+
+    <EditText
+        android:id="@+id/SynopsisInput"
+        android:layout_width="406dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:hint="Enter Movie Synopsis: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AgeRatingInput" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:text="Submit and move to showtimes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SynopsisInput" />
+
+
+
+    /
+
+</androidx.constraintlayout.widget.ConstraintLayout>

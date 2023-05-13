@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mContinueAsGuest.setOnClickListener(new View.OnClickListener() {
-            //TODO: Make it so that non users have their own movie view without user functions until logged in
             @Override
             public void onClick(View view) {
                 Intent intent = Guest_Central_Page.intentFactory(getApplicationContext());

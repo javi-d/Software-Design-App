@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".Admin_Main_Page">
 
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="209dp"
+        android:layout_height="100dp"
+        android:text="Add Movie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.196" />
+
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="209dp"
+        android:layout_height="100dp"
+        android:text="Remove Movie"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateButton"
+        app:layout_constraintVertical_bias="0.348" />
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="209dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="52dp"
+        android:text="Update Movie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addButton"
+        app:layout_constraintVertical_bias="0.348"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

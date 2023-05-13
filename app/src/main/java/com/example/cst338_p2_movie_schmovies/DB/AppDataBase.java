@@ -5,12 +5,14 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import com.example.cst338_p2_movie_schmovies.Movie;
 import com.example.cst338_p2_movie_schmovies.Theater;
 import com.example.cst338_p2_movie_schmovies.Users;
 
-@Database(entities = {Users.class, Movie.class}, version = 5)
+@Database(entities = {Users.class, Movie.class}, version = 7)
+@TypeConverters({Converters.class})
 public abstract class AppDataBase extends RoomDatabase {
     public static final String DATABASE_NAME = "Users.db";
     public static final String USERS_TABLE = "users_table";
