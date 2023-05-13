@@ -22,6 +22,16 @@ public class gMovie_View extends AppCompatActivity {
     private TextView movieSynopsisField;
     private ImageView movieBannerField;
 
+    private TextView movieLocation;
+
+    private TextView movieDate1;
+    private TextView movieDate2;
+    private TextView movieDate3;
+
+    private TextView movieTime1;
+    private TextView movieTime2;
+    private TextView movieTime3;
+
     private DAO DAO;
 
     private String movieTitle;
@@ -40,6 +50,14 @@ public class gMovie_View extends AppCompatActivity {
         movieTitleField = findViewById(R.id.GuestMovieTitleHeader);
         movieSynopsisField = findViewById(R.id.GuestMovieSynopsis);
         movieBannerField = findViewById(R.id.GuestMovieBannerImage);
+        movieLocation = findViewById(R.id.movieLocation);
+        movieDate1 = findViewById(R.id.movieDate1);
+        movieDate2 = findViewById(R.id.movieDate2);
+        movieDate3 = findViewById(R.id.movieDate3);
+
+        movieTime1 = findViewById(R.id.movieTime1);
+        movieTime2 = findViewById(R.id.movieTime2);
+        movieTime3 = findViewById(R.id.movieTime3);
 //        movieTitleField.setText(R.string.titleHolder);
 //        movieSynopsisField.setText(R.string.textHolder);
 
@@ -50,6 +68,13 @@ public class gMovie_View extends AppCompatActivity {
         movieTitleField.setText(movie.getMovieName());
         movieSynopsisField.setText(movie.getSynopsis());
         movieBannerField.setImageResource(movie.getImage());
+        movieLocation.setText(movie.getLocation());
+        movieDate1.setText(movie.getDate1());
+        movieDate2.setText(movie.getDate2());
+        movieDate3.setText(movie.getDate3());
+        movieTime1.setText(movie.getTime1());
+        movieTime2.setText(movie.getTime2());
+        movieTime3.setText(movie.getTime3());
 
 
 

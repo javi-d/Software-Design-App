@@ -14,7 +14,6 @@
         android:layout_height="48dp"
         android:gravity="center"
         android:hint="@string/add_image_url"
-        android:scrollbarTrackHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

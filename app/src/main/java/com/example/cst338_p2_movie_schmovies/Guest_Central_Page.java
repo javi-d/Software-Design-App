@@ -43,13 +43,11 @@ public class Guest_Central_Page extends AppCompatActivity implements RecyclerVie
         RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
 
         List<Movie> items = new ArrayList<>();
-        items.add(new Movie("Gardians of the Galaxy Vol.3", "Heroes who save the galaxy", "Pg-13" , R.drawable.a));
-        items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13", R.drawable.b));
-        items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13", R.drawable.c));
-        items.add(new Movie("Dungeons and dragons ", "People who live in a different realm", "Pg-13", R.drawable.d));
-        items.add(new Movie("Suzume", "Anime movie", "Pg-13" , R.drawable.e));
-        items.add(new Movie("Spiderman Across the Spider Verse ", "Mile Morales travels into the multiverse and is on the run due to his actions that he wants to do", "Pg-13", R.drawable.f));
-
+        items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13", R.drawable.b,  "Marina ","May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
+        items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13", R.drawable.c,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
+        items.add(new Movie("Dungeons and dragons ", "People who live in a different realm", "Pg-13", R.drawable.d,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
+        items.add(new Movie("Suzume", "Anime movie", "Pg-13" , R.drawable.e ,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
+        items.add(new Movie("Spiderman Across the Spider Verse ", "Mile Morales travels into the multiverse and is on the run due to his actions that he wants to do", "Pg-13", R.drawable.f, "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
 
 
         getCentralDatabase();
