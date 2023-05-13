@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey;
 
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 
+@Entity(tableName = AppDataBase.THEATER_TABLE)
 public class Theater {
     @PrimaryKey(autoGenerate = true)
     private int mTheaterId;

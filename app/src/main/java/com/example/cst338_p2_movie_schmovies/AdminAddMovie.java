@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -51,6 +52,19 @@ public class AdminAddMovie extends AppCompatActivity {
         Intent notGoingToBeUsed = getIntent();
         adminId = notGoingToBeUsed.getIntExtra(User_ID_KEY, -1);
         wiredUpDisplay();
+
+        Movie movie = new Movie(mTitle, mSynopsis, mAgeRating, 0, "Cinemark Monterey 13", "May 15", "May 16", "May 17", "2:30PM", "3:30PM", "9:00PM");
+        DAO.insert(movie);
+
+        toTimeInputButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Movie mMovie = DAO.getMovieByName(mTitle);
+               int movieId =  mMovie.getMovieLogId();
+               Intent intent = AddMovieTheatersAndTimes.intentFactory(getApplicationContext(), movieId);
+               startActivity(intent);
+            }
+        });
     }
 
     private void wiredUpDisplay() {
@@ -58,8 +72,12 @@ public class AdminAddMovie extends AppCompatActivity {
         titleInput = findViewById(R.id.TitleInput);
         ageRatingInput = findViewById(R.id.AgeRatingInput);
         synopsisInput = findViewById(R.id.SynopsisInput);
+        toTimeInputButton = findViewById(R.id.SubmitMovieButton);
 
-
+        imageURL = imageURLField.getText().toString();
+        mTitle = titleInput.getText().toString();
+        mAgeRating = ageRatingInput.getText().toString();
+        mSynopsis = synopsisInput.getText().toString();
     }
 
     @Override

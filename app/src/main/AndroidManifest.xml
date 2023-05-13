@@ -12,17 +12,20 @@
         android:theme="@style/Theme.CST338P2Movie_Schmovies"
         tools:targetApi="31">
         <activity
+            android:name=".AddMovieTheatersAndTimes"
+            android:exported="false" />
+        <activity
             android:name=".AdminRemoveMovie"
             android:exported="false"
-            android:parentActivityName=".Admin_Main_Page"/>
+            android:parentActivityName=".Admin_Main_Page" />
         <activity
             android:name=".AdminUpdateMovie"
             android:exported="false"
-            android:parentActivityName=".Admin_Main_Page"/>
+            android:parentActivityName=".Admin_Main_Page" />
         <activity
             android:name=".AdminAddMovie"
             android:exported="false"
-            android:parentActivityName=".Admin_Main_Page"/>
+            android:parentActivityName=".Admin_Main_Page" />
         <activity
             android:name=".gMovie_View"
             android:exported="false"

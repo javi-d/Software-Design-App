@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/AgeRatingInput" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/SubmitMovieButton"
         android:layout_width="200dp"
         android:layout_height="90dp"
         android:text="Submit and move to showtimes"

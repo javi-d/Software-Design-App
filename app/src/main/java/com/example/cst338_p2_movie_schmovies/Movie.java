@@ -4,6 +4,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 @Entity(tableName = AppDataBase.MOVIE_TABLE)
 public class Movie {
 
@@ -16,6 +20,7 @@ public class Movie {
 
     private String mImageLink;
 
+    public HashMap<String, List<String>> theaterShowTimes;
 
     private int mImage;
 
@@ -44,7 +49,10 @@ public class Movie {
         mTime1 = time1;
         mTime2 = time2;
         mTime3 = time3;
-//        theaterShowTimes = new HashMap<>();
+        theaterShowTimes = new HashMap<>();
+        theaterShowTimes.put("Century Marina and XD", new ArrayList<>());
+        theaterShowTimes.put("Maya Cinemas Salinas", new ArrayList<>());
+        theaterShowTimes.put("Cinemark Monterey 13", new ArrayList<>());
     }
 
 
@@ -172,5 +180,13 @@ public class Movie {
 
     public void setImageLink(String imageLink) {
         mImageLink = imageLink;
+    }
+
+    public HashMap<String, List<String>> getTheaterShowTimes() {
+        return theaterShowTimes;
+    }
+
+    public void setTheaterShowTimes(HashMap<String, List<String>> theaterShowTimes) {
+        this.theaterShowTimes = theaterShowTimes;
     }
 }

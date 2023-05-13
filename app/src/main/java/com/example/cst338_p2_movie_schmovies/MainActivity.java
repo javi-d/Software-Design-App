@@ -154,7 +154,13 @@ public class MainActivity extends AppCompatActivity {
             admin2.setAdmin(true);
 
             mDAO.insert(defaultUser,altUser, admin1, admin2, imposter);
+
         }
+        Theater marina = new Theater("Century Marina and XD", "100 10th St, Marina, CA 93933");
+        Theater monterey = new Theater("Cinemark Monterey 13", "1700 Del Monte Center, Monterey, CA 93940");
+        Theater salinas = new Theater("Maya Cinemas Salinas", "153 Main St, Salinas, CA 93901");
+
+        mDAO.insert(marina, monterey, salinas);
 
         Intent intent = log_In_Page.intentFactory(this);
         startActivity(intent);
