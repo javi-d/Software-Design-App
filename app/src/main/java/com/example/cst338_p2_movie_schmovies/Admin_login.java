@@ -57,7 +57,8 @@ public class Admin_login extends AppCompatActivity {
                        if(! adminUser.getAdmin()){
                            Toast.makeText(Admin_login.this, "Not an admin, please return to login page to log in as a user", Toast.LENGTH_SHORT).show();
                        } else{
-                           Intent intent = new Intent(Admin_login.this, central_movie_page.class);
+                           int adminId = adminUser.getUserId();
+                           Intent intent = Admin_Main_Page.intentFactory(getApplicationContext(),adminId );
                            startActivity(intent);
 
                        }

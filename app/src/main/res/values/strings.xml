@@ -26,4 +26,13 @@
     <string name="logout">logout</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="title_here">Title here</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="titleHolder">Title</string>
+    <string name="textHolder">Text</string>
+    <string name="enter_movie_title">Enter Movie Title:</string>
+    <string name="add_image_url">Add Image URL:</string>
+    <string name="enter_suggested_age_rating">Enter Suggested Age Rating:</string>
+    <string name="times_input_example">Ex.: Cinemark Monterey 13; 2:30PM 3:45PM 6:00PM, 9:55PK</string>
+    <string name="times_input_explanation">Enter times movie is playing and theater (Theater; time1 time2 time3, ...) format</string>
 </resources>

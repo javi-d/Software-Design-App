@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
     protected static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.PREFERENCE_KEY";
+    protected static final String MOVIE_KEY = "com.example.cst338_p2_movie_schmovies.MOVIE_KEY";
 
     ActivityMainBinding mBinding;
 
@@ -94,10 +95,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mContinueAsGuest.setOnClickListener(new View.OnClickListener() {
-            //TODO: Make it so that non users have their own movie view without user functions until logged in
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, central_movie_page.class);
+                Intent intent = Guest_Central_Page.intentFactory(getApplicationContext());
                 startActivity(intent);
             }
         });
@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
     private void getDatabase() {
         mDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
                 .MovieSchmovieDAO();
     }
@@ -153,8 +154,13 @@ public class MainActivity extends AppCompatActivity {
             admin2.setAdmin(true);
 
             mDAO.insert(defaultUser,altUser, admin1, admin2, imposter);
-        }
 
+        }
+        Theater marina = new Theater("Century Marina and XD", "100 10th St, Marina, CA 93933");
+        Theater monterey = new Theater("Cinemark Monterey 13", "1700 Del Monte Center, Monterey, CA 93940");
+        Theater salinas = new Theater("Maya Cinemas Salinas", "153 Main St, Salinas, CA 93901");
+
+        mDAO.insert(marina, monterey, salinas);
 
         Intent intent = log_In_Page.intentFactory(this);
         startActivity(intent);

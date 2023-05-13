@@ -1,8 +1,8 @@
 package com.example.cst338_p2_movie_schmovies;
 
+import static com.example.cst338_p2_movie_schmovies.MainActivity.MOVIE_KEY;
 import static com.example.cst338_p2_movie_schmovies.MainActivity.PREFERENCE_KEY;
 import static com.example.cst338_p2_movie_schmovies.MainActivity.User_ID_KEY;
-import static com.example.cst338_p2_movie_schmovies.MainActivity.MOVIE_KEY;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -27,25 +27,22 @@ import com.example.cst338_p2_movie_schmovies.DB.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class central_movie_page extends AppCompatActivity{
-//    protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
-//    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.com.PREFERENCE_KEY";
 
-    private DAO DAO;
+public class Guest_Central_Page extends AppCompatActivity implements RecyclerViewInterface {
+
+    private com.example.cst338_p2_movie_schmovies.DB.DAO DAO;
     private int userId  = -1;
     private SharedPreferences Preferences = null;
-    List<Movie> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_central_movie_page);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
 
-
-        items.add(new Movie("Gardians of the Galaxy Vol.3", "Heroes who save the galaxy", "Pg-13" , R.drawable.a, "Marina ","May 5", "May 10 ","May 15","7:00 PM", "7:00 PM", "7:00 PM"));
-
+        List<Movie> items = new ArrayList<>();
         items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13", R.drawable.b,  "Marina ","May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
         items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13", R.drawable.c,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
         items.add(new Movie("Dungeons and dragons ", "People who live in a different realm", "Pg-13", R.drawable.d,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
@@ -65,15 +62,15 @@ public class central_movie_page extends AppCompatActivity{
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(), items, new RecyclerViewInterface() {
+       AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(), items, new RecyclerViewInterface() {
             @Override
             public void onItemClick(int position) {
                 String movieName = items.get(position).getMovieName();
                 Movie movie = DAO.getMovieByName(movieName);
+                Intent intent = new Intent(getApplicationContext(), gMovie_View.class);
                 int id = movie.getMovieLogId();
-                Intent intent = new Intent(getApplicationContext(), Movie_View.class);
                 intent.putExtra(MOVIE_KEY, id);
-                intent.putExtra(User_ID_KEY, userId);
+//                intent.putExtra(User_ID_KEY, userId);
                 startActivity(intent);
             }
         });
@@ -110,17 +107,14 @@ public class central_movie_page extends AppCompatActivity{
 
     private void logoutUser() {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
-        alertBuilder.setMessage(R.string.logout);
+        alertBuilder.setMessage("Sign In or Sign Up?");
 
         alertBuilder.setPositiveButton(getString(R.string.yes),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        clearUserFromIntent();
-                        clearUserFromPref();
-                        userId = -1;
-                        checkForuser();
-
+                        Intent intent = MainActivity.intentFactory(getApplicationContext());
+                        startActivity(intent);
                     }
                 });
 
@@ -136,73 +130,68 @@ public class central_movie_page extends AppCompatActivity{
 
     }
 
-    private void checkForuser() {
-
-        userId = getIntent().getIntExtra(User_ID_KEY, -1);
-
-        if(userId != -1){
-            return;
-        }
-
-        if(Preferences == null){
-            getPrefs();
-        }
-
-        userId = Preferences.getInt(User_ID_KEY, -1);
-
-        if(userId != -1){
-            return;
-        }
-
-//        List<Users> user = DAO.getAllUsers();
-//        if(user.size()<= 0){
-//            Users defeUser = new Users("") ;
-//            Users altUser = new Users("");
-//            DAO.insert(defeUser,altUser);
+//    private void checkForuser() {
+//
+//        userId = getIntent().getIntExtra(User_ID_KEY, -1);
+//
+//        if(userId != -1){
+//            return;
 //        }
 //
-        Intent intent = MainActivity.intentFactory(getApplicationContext());
-        startActivity(intent);
+//        if(Preferences == null){
+//            getPrefs();
+//        }
+//
+//        userId = Preferences.getInt(User_ID_KEY, -1);
+//
+//        if(userId != -1){
+//            return;
+//        }
+//
+////        List<Users> user = DAO.getAllUsers();
+////        if(user.size()<= 0){
+////            Users defeUser = new Users("") ;
+////            Users altUser = new Users("");
+////            DAO.insert(defeUser,altUser);
+////        }
+////
+//        Intent intent = MainActivity.intentFactory(getApplicationContext());
+//        startActivity(intent);
+//
+//    }
 
-    }
+//    private void clearUserFromPref() {
+//        addUserToPreference(-1);
+//    }
 
-    private void clearUserFromPref() {
-        addUserToPreference(-1);
-    }
+//    private void addUserToPreference(int i) {
+//        if(Preferences == null){
+//            getPrefs();
+//        }
+//        SharedPreferences.Editor editor = Preferences.edit();
+//        editor.putInt(User_ID_KEY, i);
+//    }
+//
+//    private void getPrefs() {
+//        Preferences = this.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE);
+//    }
 
-    private void addUserToPreference(int i) {
-        if(Preferences == null){
-            getPrefs();
-        }
-        SharedPreferences.Editor editor = Preferences.edit();
-        editor.putInt(User_ID_KEY, i);
-    }
+//    private void clearUserFromIntent() {
+//        getIntent().putExtra(User_ID_KEY, -1);
+//    }
 
-    private void getPrefs() {
-        Preferences = this.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE);
-    }
-
-    private void clearUserFromIntent() {
-        getIntent().putExtra(User_ID_KEY, -1);
-    }
-
-    public static Intent intentFactory(Context context, int userId){
-        Intent intent = new Intent(context, central_movie_page.class);
-        intent.putExtra(User_ID_KEY, userId);
+    public static Intent intentFactory(Context context){
+        Intent intent = new Intent(context, Guest_Central_Page.class);
+//        intent.putExtra(User_ID_KEY, userId);
         return intent;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        Users mUser = DAO.getUserById(userId);
-        if (mUser != null) {
-            MenuItem item = menu.findItem(R.id.user1);
-            item.setTitle(mUser.getUsername());
 
-        } else {
-            MenuItem item = menu.findItem(R.id.user1);
-            item.setTitle("...");
-        }
+        MenuItem item = menu.findItem(R.id.user1);
+        item.setTitle("Login?");
+
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -215,4 +204,9 @@ public class central_movie_page extends AppCompatActivity{
 
     }
 
+
+    @Override
+    public void onItemClick(int position) {
+
+    }
 }

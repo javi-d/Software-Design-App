@@ -13,6 +13,10 @@ import androidx.room.PrimaryKey;
 
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 @Entity(tableName = AppDataBase.USERS_TABLE)
 
 public class Users {
@@ -24,6 +28,7 @@ public class Users {
 
    public Boolean mIsAdmin;
 
+   private HashMap<String, List<String>> mTheaterShowTimes;
 
 
    //````````````````````````````````````````Constructor``````````````````````````//
@@ -31,6 +36,11 @@ public class Users {
       mUsername = username;
       mPassword = password;
       mIsAdmin = Boolean.FALSE;
+      mTheaterShowTimes = new HashMap<>();
+
+      mTheaterShowTimes.put("Century Marina and XD", new ArrayList<>());
+      mTheaterShowTimes.put("Maya Cinemas Salinas", new ArrayList<>());
+      mTheaterShowTimes.put("Cinemark Monterey 13", new ArrayList<>());
 
    }
 
@@ -78,5 +88,13 @@ public class Users {
 
    public void setAdmin(Boolean admin) {
       mIsAdmin = admin;
+   }
+
+   public HashMap<String, List<String>> getTheaterShowTimes() {
+      return mTheaterShowTimes;
+   }
+
+   public void setTheaterShowTimes(HashMap<String, List<String>> theaterShowTimes) {
+      mTheaterShowTimes = theaterShowTimes;
    }
 }

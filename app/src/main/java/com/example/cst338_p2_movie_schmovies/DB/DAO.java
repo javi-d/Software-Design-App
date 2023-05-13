@@ -5,6 +5,8 @@
  */
 
 package com.example.cst338_p2_movie_schmovies.DB;
+import com.example.cst338_p2_movie_schmovies.Movie;
+import com.example.cst338_p2_movie_schmovies.Theater;
 import com.example.cst338_p2_movie_schmovies.Users;
 
 import androidx.room.Dao;
@@ -34,4 +36,35 @@ public interface DAO {
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE mUsername = :username")
     Users getUserByUsername(String username);
 
+    @Insert
+    void insert(Movie... movies);
+
+    @Update
+    void update(Movie... movies);
+
+    @Delete
+    void delete(Movie movie);
+
+    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE )
+    List<Movie> getAllMovies();
+    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE + " WHERE mMovieName = :movieName")
+    Movie getMovieByName(String movieName);
+    @Query("SELECT * FROM " + AppDataBase.MOVIE_TABLE + " WHERE mMovieLogId = :movieId") // Not Sure why it is mad at mMovieLogId but it is.
+    Movie getMovieById(int movieId);
+
+    @Insert
+    void insert(Theater... theaters);
+
+    @Update
+    void update(Theater... theaters);
+
+    @Delete
+    void delete(Theater theater);
+
+    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE )
+    List<Theater> getAllTheaters();
+    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterName = :theaterName")
+    Theater getTheaterByName(String theaterName);
+    @Query("SELECT * FROM " + AppDataBase.THEATER_TABLE + " WHERE mTheaterId = :theaterId") // Not Sure why it is mad at mMovieLogId but it is.
+    Theater getTheaterById(int theaterId);
 }

@@ -2,14 +2,10 @@ package com.example.cst338_p2_movie_schmovies;
 
 import static com.example.cst338_p2_movie_schmovies.MainActivity.PREFERENCE_KEY;
 import static com.example.cst338_p2_movie_schmovies.MainActivity.User_ID_KEY;
-import static com.example.cst338_p2_movie_schmovies.MainActivity.MOVIE_KEY;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Dao;
 import androidx.room.Room;
 
 import android.content.Context;
@@ -20,74 +16,69 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.cst338_p2_movie_schmovies.DB.AppDataBase;
 import com.example.cst338_p2_movie_schmovies.DB.DAO;
 
-import java.util.ArrayList;
-import java.util.List;
+public class AdminAddMovie extends AppCompatActivity {
 
-public class central_movie_page extends AppCompatActivity{
-//    protected static final String User_ID_KEY = "com.example.cst338_p2_movie_schmovies.userIdKey";
-//    private static final String PREFERENCE_KEY = "com.example.cst338_p2_movie_schmovies.com.PREFERENCE_KEY";
+    private EditText imageURLField;
+    private EditText titleInput;
+    private EditText ageRatingInput;
+    private EditText synopsisInput;
+    private Button toTimeInputButton;
 
+    private String imageURL;
+    private String mTitle;
+    private String mAgeRating;
+    private String mSynopsis;
+
+
+    private SharedPreferences Preferences;
+    private int adminId;
     private DAO DAO;
-    private int userId  = -1;
-    private SharedPreferences Preferences = null;
-    List<Movie> items = new ArrayList<>();
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_central_movie_page);
+        setContentView(R.layout.activity_admin_add_movie);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
+        getDatabase();
 
+        Intent notGoingToBeUsed = getIntent();
+        adminId = notGoingToBeUsed.getIntExtra(User_ID_KEY, -1);
+        wiredUpDisplay();
 
-        items.add(new Movie("Gardians of the Galaxy Vol.3", "Heroes who save the galaxy", "Pg-13" , R.drawable.a, "Marina ","May 5", "May 10 ","May 15","7:00 PM", "7:00 PM", "7:00 PM"));
+        Movie movie = new Movie(mTitle, mSynopsis, mAgeRating, 0, "Cinemark Monterey 13", "May 15", "May 16", "May 17", "2:30PM", "3:30PM", "9:00PM");
+        DAO.insert(movie);
 
-        items.add(new Movie("Super Mario Bros", "Plumbers", "Pg-13", R.drawable.b,  "Marina ","May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
-        items.add(new Movie("John Wick Chapter 4", "Assassin who is in the run", "Pg-13", R.drawable.c,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
-        items.add(new Movie("Dungeons and dragons ", "People who live in a different realm", "Pg-13", R.drawable.d,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
-        items.add(new Movie("Suzume", "Anime movie", "Pg-13" , R.drawable.e ,  "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
-        items.add(new Movie("Spiderman Across the Spider Verse ", "Mile Morales travels into the multiverse and is on the run due to his actions that he wants to do", "Pg-13", R.drawable.f, "Marina ", "May 5", "May 10 ","May 15", "7:00 PM", "7:00 PM", "7:00 PM"));
-
-
-        getCentralDatabase();
-        for (Movie movie : items) {
-            DAO.insert(movie);
-        }
-
-
-//        Movie movie1 = new Movie("Guardians of the Galaxy Vol.3", "Heroes who save the galaxy", "PG-13");
-//        DAO.insert(movie1);
-
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        AdapterClass ItemAdapter = new AdapterClass(getApplicationContext(), items, new RecyclerViewInterface() {
+        toTimeInputButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(int position) {
-                String movieName = items.get(position).getMovieName();
-                Movie movie = DAO.getMovieByName(movieName);
-                int id = movie.getMovieLogId();
-                Intent intent = new Intent(getApplicationContext(), Movie_View.class);
-                intent.putExtra(MOVIE_KEY, id);
-                intent.putExtra(User_ID_KEY, userId);
-                startActivity(intent);
+            public void onClick(View view) {
+                Movie mMovie = DAO.getMovieByName(mTitle);
+               int movieId =  mMovie.getMovieLogId();
+               Intent intent = AddMovieTheatersAndTimes.intentFactory(getApplicationContext(), movieId);
+               startActivity(intent);
             }
         });
-        recyclerView.setAdapter(ItemAdapter);
-
-
-
-        Intent unusedIntent = getIntent();
-        userId = unusedIntent.getIntExtra(User_ID_KEY, -1);
-
-
     }
 
+    private void wiredUpDisplay() {
+        imageURLField = findViewById(R.id.imageURLInput);
+        titleInput = findViewById(R.id.TitleInput);
+        ageRatingInput = findViewById(R.id.AgeRatingInput);
+        synopsisInput = findViewById(R.id.SynopsisInput);
+        toTimeInputButton = findViewById(R.id.SubmitMovieButton);
 
+        imageURL = imageURLField.getText().toString();
+        mTitle = titleInput.getText().toString();
+        mAgeRating = ageRatingInput.getText().toString();
+        mSynopsis = synopsisInput.getText().toString();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,7 +109,7 @@ public class central_movie_page extends AppCompatActivity{
                     public void onClick(DialogInterface dialogInterface, int i) {
                         clearUserFromIntent();
                         clearUserFromPref();
-                        userId = -1;
+                        adminId = -1;
                         checkForuser();
 
                     }
@@ -138,29 +129,24 @@ public class central_movie_page extends AppCompatActivity{
 
     private void checkForuser() {
 
-        userId = getIntent().getIntExtra(User_ID_KEY, -1);
+        Intent unusedIntent = getIntent();
+        adminId   =  unusedIntent.getIntExtra(User_ID_KEY, -1);
 
-        if(userId != -1){
+        if(adminId != -1){
             return;
         }
+
 
         if(Preferences == null){
             getPrefs();
         }
 
-        userId = Preferences.getInt(User_ID_KEY, -1);
+        adminId = Preferences.getInt(User_ID_KEY, -1);
 
-        if(userId != -1){
+        if(adminId != -1){
             return;
         }
 
-//        List<Users> user = DAO.getAllUsers();
-//        if(user.size()<= 0){
-//            Users defeUser = new Users("") ;
-//            Users altUser = new Users("");
-//            DAO.insert(defeUser,altUser);
-//        }
-//
         Intent intent = MainActivity.intentFactory(getApplicationContext());
         startActivity(intent);
 
@@ -186,15 +172,10 @@ public class central_movie_page extends AppCompatActivity{
         getIntent().putExtra(User_ID_KEY, -1);
     }
 
-    public static Intent intentFactory(Context context, int userId){
-        Intent intent = new Intent(context, central_movie_page.class);
-        intent.putExtra(User_ID_KEY, userId);
-        return intent;
-    }
-
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        Users mUser = DAO.getUserById(userId);
+
+        Users mUser = DAO.getUserById(adminId);
         if (mUser != null) {
             MenuItem item = menu.findItem(R.id.user1);
             item.setTitle(mUser.getUsername());
@@ -206,7 +187,7 @@ public class central_movie_page extends AppCompatActivity{
 
         return super.onPrepareOptionsMenu(menu);
     }
-    private void getCentralDatabase() {
+    private void getDatabase() {
         DAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
@@ -215,4 +196,9 @@ public class central_movie_page extends AppCompatActivity{
 
     }
 
+    public static Intent intentFactory(Context context, int adminId){
+        Intent intent = new Intent(context, AdminAddMovie.class);
+        intent.putExtra(User_ID_KEY, adminId);
+        return intent;
+    }
 }
